@@ -1,0 +1,16 @@
+/images/logo_maquina.png
+/images/background03.png
+
+/mqtmgamegateway/ComponenteImageGet.aspx?iv=[versao da imagem]&guid=[id do componente]
+/mqtmgamegateway/PacoteComponenteInfoGet.aspx?guid=[id do pacote]
+/mqtmgamegateway/PacoteImageGet.aspx?guid=[id do pacote]
+/mqtmgamegateway/UsuarioPacotesInfoGet.aspx?guid=[id do user]
+/mqtmgamegateway/GameGateway.asmx (algum tipo de api WSDL provavelmente)
+
+essa api contem (como visto no BaseGameGatewaySchema.as):
+	"Save"
+	"SaveResponse"
+	"OfflineScreenShotSave"
+	"OfflineScreenShotSaveResponse"
+	"Load"
+	"LoadResponse"

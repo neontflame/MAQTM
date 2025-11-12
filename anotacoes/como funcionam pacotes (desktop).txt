@@ -1,0 +1,14 @@
+<packItem category="?" imageBehavior="?" dialogStyleName="">
+    <toolTip>nome do item</toolTip>
+  </packItem>
+
+category - IDs de categoria: 
+	1 - objetos
+	2 - baloes
+	18 - objetos de fundo
+	19 - personagens
+
+imageBehavior - comportamentos aparentemente?:
+	0, 1 - nao muda nada de 1a vista. pode ser irrelevante
+
+dialogStyleName - sempre ta vazio por algum motivo
