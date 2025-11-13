@@ -52,6 +52,32 @@ $packPath = $_SERVER['DOCUMENT_ROOT'] . "/Pacotes/" . $pacote;
 				error_log("Erro ao parsear XML do arquivo $filePath: " . $e->getMessage());
 			}
 		}
+		
+		if (pathinfo($file, PATHINFO_EXTENSION) === 'xml') {
+			$filePath = $packPath . '/' . $file;
+			
+			// Lê o arquivo
+			$xmlContent = utf8_encode(file_get_contents($filePath));
+			
+			try {
+				// Parseia o XML descriptografado
+				$componentXML = new SimpleXMLElement($xmlContent);
+				
+				// Adiciona metadados (como na função ActionScript)
+				$componentXML->addAttribute('guid', pathinfo($file, PATHINFO_FILENAME));
+				$componentXML->addAttribute('packFolder', basename($packPath));
+						
+				// Calcula caminho para o arquivo .swf
+				$mciPath = substr($filePath, 0, -4) . '.swf'; // Remove .xml e adiciona .swf
+				$componentXML->addAttribute('fullPath', $mciPath);
+						
+				// Adiciona ao XML raiz
+				appendXML($rootXML, $componentXML);
+						
+			} catch (Exception $e) {
+				error_log("Erro ao parsear XML do arquivo $filePath: " . $e->getMessage());
+			}
+		}
 	}
 }
 

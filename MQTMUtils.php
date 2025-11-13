@@ -15,6 +15,21 @@ function decryptBytes($encryptedData) {
 	return $decryptedData;
 }
 
+function encryptBytes($decryptedData) {
+	$key = 217;
+	$encryptedData = '';
+	$length = strlen($decryptedData);
+	
+	for ($i = 0; $i < $length; $i++) {
+		$decryptedByte = ord($decryptedData[$i]);
+		$encryptedByte = ($decryptedByte + $key) & 0xFF; // Mantém no range 0-255
+		$encryptedData .= chr($encryptedByte);
+		$key = ($key - 1) & 0xFF; // Incrementa e mantém no range 0-255
+	}
+	
+	return $encryptedData;
+}
+
 function appendXML(SimpleXMLElement $to, SimpleXMLElement $from) {
 	$toDom = dom_import_simplexml($to);
 	$fromDom = dom_import_simplexml($from);
