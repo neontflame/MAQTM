@@ -14,7 +14,7 @@ function utf8_encode_callback($m)
     return utf8_encode($m[0]);
 }
 
-header("content-type: application/rss+xml; charset=iso-8859-1");
+header("content-type: application/xml; charset=iso-8859-1");
 	
 $rootXML = new SimpleXMLElement('<defaultPackData/>');
 
