@@ -19,6 +19,7 @@ header("content-type: application/rss+xml; charset=iso-8859-1");
 $rootXML = new SimpleXMLElement('<defaultPackData/>');
 
 $osPacotes = explode(',', $_GET['guid']);
+array_unshift($osPacotes, '_Base');
 
 foreach ($osPacotes as $pacote) {
 $packPath = $_SERVER['DOCUMENT_ROOT'] . "/Pacotes/" . $pacote;

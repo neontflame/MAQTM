@@ -5,7 +5,9 @@ $directories = glob($_SERVER['DOCUMENT_ROOT'] . "/Pacotes/*", GLOB_ONLYDIR);
 
 echo '<packsData>' . "\n";
 foreach ($directories as $dir) {
-    echo '<pack guid="' . basename($dir) . '" name="'. basename($dir) .'" />' . "\n";
+	if (basename($dir) != '_Base') {
+		echo '<pack guid="' . basename($dir) . '" name="'. basename($dir) .'" />' . "\n";
+	}
 }
 echo '</packsData>';
 ?>
