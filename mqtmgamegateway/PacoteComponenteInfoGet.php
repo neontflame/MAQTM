@@ -1,4 +1,5 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . "/MQTMUtils.php";
 // Source - https://stackoverflow.com/a
 // Posted by Josh Davis, modified by community. See post 'Timeline' for change history
 // Retrieved 2025-11-12, License - CC BY-SA 2.5
@@ -14,32 +15,13 @@ function utf8_encode_callback($m)
 }
 
 header("content-type: application/rss+xml; charset=iso-8859-1");
-// Funçoes Insanas obrigado robo maldito que eu odeio um pouco menos mas ainda odeio
-function decryptBytes($encryptedData) {
-	$key = 217;
-	$decryptedData = '';
-	$length = strlen($encryptedData);
-	
-	for ($i = 0; $i < $length; $i++) {
-		$encryptedByte = ord($encryptedData[$i]);
-		$decryptedByte = ($encryptedByte - $key) & 0xFF; // Mantém no range 0-255
-		$decryptedData .= chr($decryptedByte);
-		$key = ($key + 1) & 0xFF; // Incrementa e mantém no range 0-255
-	}
-	
-	return $decryptedData;
-}
-
-function appendXML(SimpleXMLElement $to, SimpleXMLElement $from) {
-	$toDom = dom_import_simplexml($to);
-	$fromDom = dom_import_simplexml($from);
-	$toDom->appendChild($toDom->ownerDocument->importNode($fromDom, true));
-}
 	
 $rootXML = new SimpleXMLElement('<defaultPackData/>');
 
-$packPath = $_SERVER['DOCUMENT_ROOT'] . "/Pacotes/" . $_GET['guid'];
-			
+$osPacotes = explode(',', $_GET['guid']);
+
+foreach ($osPacotes as $pacote) {
+$packPath = $_SERVER['DOCUMENT_ROOT'] . "/Pacotes/" . $pacote;
 	// Lista todos os arquivos do diretório
 	$files = scandir($packPath);
 	foreach ($files as $file) {
@@ -55,7 +37,7 @@ $packPath = $_SERVER['DOCUMENT_ROOT'] . "/Pacotes/" . $_GET['guid'];
 				$componentXML = new SimpleXMLElement($decryptedContent);
 				
 				// Adiciona metadados (como na função ActionScript)
-				$componentXML->addAttribute('name', pathinfo($file, PATHINFO_FILENAME));
+				$componentXML->addAttribute('guid', pathinfo($file, PATHINFO_FILENAME));
 				$componentXML->addAttribute('packFolder', basename($packPath));
 						
 				// Calcula caminho para o arquivo .mci
@@ -70,6 +52,7 @@ $packPath = $_SERVER['DOCUMENT_ROOT'] . "/Pacotes/" . $_GET['guid'];
 			}
 		}
 	}
-		
+}
+
 echo utf8_decode($rootXML->asXML());
 ?>
