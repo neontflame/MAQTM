@@ -1,6 +1,7 @@
 <?php
 header("content-type: application/xml; charset=utf-8");
 // copiado do especulamente hihi
+// na verdade nao e mais nao eu menti pra voces
 $directories = glob($_SERVER['DOCUMENT_ROOT'] . "/Pacotes/*", GLOB_ONLYDIR);
 
 $blacklistDePacotes = ['_Base'];
