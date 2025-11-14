@@ -9,32 +9,32 @@ $screenshotsDir = $_SERVER['DOCUMENT_ROOT'] . '/Static/Screenshots';
 
 class GameGatewayReimplement
 {
-    public function Save($userGuid, $comicGuid, $saveData, $screenShot, $titulo, $descricao)
-    {
+	public function Save($userGuid, $comicGuid, $saveData, $screenShot, $titulo, $descricao)
+	{
 		$hqTrecos = new HqTools();
 		$hqTrecos->criar($userGuid, $saveData, $screenShot, $titulo, $descricao);
-    }
-    public function OfflineScreenShotSave($screenShot, $titulo, $descricao)
-    {
-        return 'ok';
-    }
-    public function Load($userGuid, $comicGuid, $readOnly)
-    {
-        $hqTrecos = new HqTools();
-        $comicData = $hqTrecos->requestIDator($comicGuid);
+	}
+	public function OfflineScreenShotSave($screenShot, $titulo, $descricao)
+	{
+		return 'ok';
+	}
+	public function Load($userGuid, $comicGuid, $readOnly)
+	{
+		$hqTrecos = new HqTools();
+		$comicData = $hqTrecos->requestIDator($comicGuid);
 
-        $innerXml = '<?xml version="1.0"?>' .
-            '<root>' .
-            '    <c>' . $comicData->saveData . '</c>' .
-            '    <a>' . $comicData->userGuid . '</a>' .
-            '    <t>' . $comicData->titulo . '</t>' .
-            '    <d>' . $comicData->descricao . '</d>' .
-            '</root>';
+		$innerXml = '<?xml version="1.0"?>' .
+			'<root>' .
+			'<c>' . $comicData->saveData . '</c>' .
+			'<a>' . $comicData->userGuid . '</a>' .
+			'<t>' . $comicData->titulo . '</t>' .
+			'<d>' . $comicData->descricao . '</d>' .
+			'</root>';
 
-        $cdataWrapped = '<![CDATA[' . $innerXml . ']]>';
+		$cdataWrapped = '<![CDATA[' . $innerXml . ']]>';
 
-        return new SoapVar($cdataWrapped, XSD_ANYXML);
-    }
+		return new SoapVar($cdataWrapped, XSD_ANYXML);
+	}
 }
 
 $options = ['uri' => 'http://tempuri.org/'];
