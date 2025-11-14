@@ -1,8 +1,9 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Admin/Autoload.php";
 header("content-type: application/xml; charset=utf-8");
 // copiado do especulamente hihi
 // na verdade nao e mais nao eu menti pra voces
-$directories = glob($_SERVER['DOCUMENT_ROOT'] . "/Pacotes/*", GLOB_ONLYDIR);
+$directories = glob($caminhoPacotes . "*", GLOB_ONLYDIR);
 
 $blacklistDePacotes = ['_Base'];
 echo '<packsData>' . "\n";

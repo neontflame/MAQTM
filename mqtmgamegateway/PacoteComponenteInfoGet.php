@@ -22,7 +22,7 @@ $osPacotes = explode(',', $_GET['guid']);
 array_unshift($osPacotes, '_Base');
 
 foreach ($osPacotes as $pacote) {
-$packPath = $_SERVER['DOCUMENT_ROOT'] . "/Pacotes/" . $pacote;
+$packPath = $caminhoPacotes . $pacote;
 	// Lista todos os arquivos do diretório
 	$files = scandir($packPath);
 	foreach ($files as $file) {

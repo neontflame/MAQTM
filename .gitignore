@@ -1,4 +1,3 @@
-Pacotes/*/
+MQTMAdm/Arquivos/Pacotes/*/
 Admin/config.php
-Static/ComicsSalvas/*
-Static/Screenshots/*
+Arquivos/SaveGame/Screenshots/*.png

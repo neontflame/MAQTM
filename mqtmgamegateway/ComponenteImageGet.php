@@ -3,7 +3,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Admin/Autoload.php";
 
 header('Content-Type: application/x-shockwave-flash');
 
-$startDirectory = $_SERVER['DOCUMENT_ROOT'] . "/Pacotes/";
+$startDirectory = $caminhoPacotes;
 $targetFileName = $_GET['guid'] . '.mci';
 $targetSWFFileName = $_GET['guid'] . '.swf';
 
