@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/MQTMUtils.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Admin/Autoload.php";
 
 $urlManeira = $_SERVER['DOCUMENT_ROOT'] . "/Pacotes/" . $_GET['guid'] . '/' . $_GET['guid'] . ".mpi";
 $urlManeiraPng = $_SERVER['DOCUMENT_ROOT'] . "/Pacotes/" . $_GET['guid'] . '/' . $_GET['guid'] . ".png";

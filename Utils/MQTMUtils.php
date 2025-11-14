@@ -35,4 +35,16 @@ function appendXML(SimpleXMLElement $to, SimpleXMLElement $from) {
 	$fromDom = dom_import_simplexml($from);
 	$toDom->appendChild($toDom->ownerDocument->importNode($fromDom, true));
 }
+
+function copyXmlElements($from, $to)
+{
+	foreach($from->children() as $child) {
+		$newChild = $to->addChild($child->getName());
+		foreach($child->attributes() as $key => $value) {
+			$newChild->addAttribute($key, $value);
+		}
+		$newChild[0] = (string)$child;
+		copyXmlElements($child, $newChild);
+	}
+}
 ?>

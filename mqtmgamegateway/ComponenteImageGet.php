@@ -1,5 +1,6 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/MQTMUtils.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Admin/Autoload.php";
+
 header('Content-Type: application/x-shockwave-flash');
 
 $startDirectory = $_SERVER['DOCUMENT_ROOT'] . "/Pacotes/";
