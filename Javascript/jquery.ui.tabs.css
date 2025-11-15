@@ -13,24 +13,3 @@
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
 .ui-tabs .ui-tabs-panel { display: block; background: none; }
 .ui-tabs .ui-tabs-hide { display: none !important; }
-
-/*
-     FILE ARCHIVED ON 22:45:10 Aug 05, 2011 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 04:45:15 Nov 14, 2025.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-  captures_list: 0.614
-  exclusion.robots: 0.027
-  exclusion.robots.policy: 0.013
-  esindex: 0.012
-  cdx.remote: 4.896
-  LoadShardBlock: 68.141 (3)
-  PetaboxLoader3.datanode: 83.208 (4)
-  load_resource: 59.205
-  PetaboxLoader3.resolve: 38.431
-*/
