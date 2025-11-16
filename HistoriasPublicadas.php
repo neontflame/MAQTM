@@ -9,19 +9,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 	</div>
 	<div id="master_col_01">
 		<div id="masterpromo_col_01">
-			<object
-				classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-				width="140"
-				height="200"
-				id="franja_col1"
-				align="middle">
-				<param name="allowScriptAccess" value="sameDomain" />
-				<param name="allowFullScreen" value="false" />
-				<param name="movie" value="/imagens/Col1_01_v2.swf" />
-				<param name="quality" value="high" />
-				<param name="wmode" value="transparent" />
-				<param name="bgcolor" value="#ffffff" />
-				<ruffle-embed
+			<embed
 					src="/imagens/Col1_01_v2.swf"
 					quality="high"
 					wmode="transparent"
@@ -33,8 +21,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					allowscriptaccess="sameDomain"
 					allowfullscreen="false"
 					type="application/x-shockwave-flash">
-				</ruffle-embed>
-			</object>
+			</embed>
 		</div>
 		<div class="container_col_01">
 			<div class="containerheader_col_01">
@@ -503,7 +490,6 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 			<br />
 			<!-- aqui sao 3 containers -->
 			<!-- container quadrinhos -->
-			
 			<div class="container_quadrinhos">
 				<div class="container_quadrinhos_texto">
 					<a href="/HistoriaVisualizar.aspx?idHistoria=992789">
@@ -521,7 +507,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					
 					<span class="quadrinhos_descricao">
 						<a href="/HistoriaVisualizar.aspx?idHistoria=992789">
-							Lorem ipsum dolor sit amet sei la eu esqueci o resto lorem ipsum lorem ipsum lorem ipsum lorem ipsum como vai seu dia
+							Lorem ipsum dolor sit amet sei la eu esqueci o resto lorem ipsum lorem ipsum lorem ipsum lorem ipsilon como vai seu dia
 						</a>
 					</span>
 					
@@ -739,129 +725,9 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 			<br />
 			<div class="containerbottom_col_03"></div>
 		</div>
-		<div class="container_col_03">
-			<div class="containerheader_col_03">
-				<img class="pacotesdeposes" src="/imagens/blank.png" alt="Pacotes" width="22px" height="20px" />
-				<h3><span id="ctl00_ContentPlaceHolder1_ucVitrine_lblTitulo">Assinaturas</span></h3>
-			</div>
-			<div class="pacotes">
-				<div class="pacotemaster">
-					<div class="pacote_foto">
-						<a href="/PacoteDetalhe.aspx?idPacote=63">
-							<img
-								class="pacote_foto_pacote"
-								src="/imagens/blank.png"
-								width="83px"
-								height="66px"
-								alt="Moldura"
-							/>
-							<img
-								class="pacote_foto_especifica"
-								src="/imagens/pacote_master.png"
-								width="67"
-								height="50"
-								alt="Pacote"
-							/>
-							<span class="pacote_vejamais">veja mais</span>
-						</a>
-					</div>
-					<br />
-					<br />
-					<br />
-					<span class="pacote_titulo">Assinatura Mensal</span>
-					<br />
-					<br />
-					<br />
-					<a class="botao_ir" href="/PacoteDetalhe.aspx?idPacote=63"><h5>Assinar</h5></a>
-					<!-- <span class="pacote_descricao">A Assinatura permite que a MQTM mantenha seu compromisso de criar uma experiência online divertida e segura. Não é preciso pagar para utilizar a MQTM, mas a assinatura permite que o autor tenha acesso a todos os pacotes de imagens já disponíveis e também aos que poderão ser lançados dentro do período de assinatura. A Assinatura Mensal dá acesso total, pelo período de 30 dias corridos.</span> -->
-				</div>
-			</div>
-			<div class="pacotes">
-				<div class="pacotecomplementar">
-					<div class="pacote_foto">
-						<a href="/PacoteDetalhe.aspx?idPacote=70">
-							<img
-								class="pacote_foto_pacote"
-								src="/imagens/blank.png"
-								width="83px"
-								height="66px"
-								alt="Moldura"
-							/>
-							<img
-								class="pacote_foto_especifica"
-								src="/imagens/pacote_master.png"
-								width="67"
-								height="50"
-								alt="Pacote"
-							/>
-							<span class="pacote_vejamais">veja mais</span>
-						</a>
-					</div>
-					<br />
-					<br />
-					<br />
-					<span class="pacote_titulo">Assinatura Semestral</span>
-					<br />
-					<br />
-					<br />
-					<a class="botao_ir" href="/PacoteDetalhe.aspx?idPacote=70"><h5>Assinar</h5></a>
-					<!-- <span class="pacote_descricao">A Assinatura permite que a MQTM mantenha seu compromisso de criar uma experiência online divertida e segura. Não é preciso pagar para utilizar a MQTM, mas a assinatura permite que o autor tenha acesso a todos os pacotes de imagens já disponíveis e também aos que poderão ser lançados dentro do período de assinatura. A Assinatura Semestral dá acesso total, pelo período de 180 dias corridos.</span> -->
-				</div>
-			</div>
-			<div class="pacotes">
-				<div class="pacoteassinatura">
-					<div class="pacote_foto">
-						<a href="/PacoteDetalhe.aspx?idPacote=41">
-							<img
-								class="pacote_foto_pacote"
-								src="/imagens/blank.png"
-								width="83px"
-								height="66px"
-								alt="Moldura"
-							/>
-							<img
-								class="pacote_foto_especifica"
-								src="/imagens/pacote_assinatura.png"
-								width="67"
-								height="50"
-								alt="Pacote"
-							/>
-							<span class="pacote_vejamais">veja mais</span>
-						</a>
-					</div>
-					<br />
-					<br />
-					<br />
-					<span class="pacote_titulo">Assinatura Anual</span>
-					<br />
-					<br />
-					<br />
-					<a class="botao_ir" href="/PacoteDetalhe.aspx?idPacote=41"><h5>Assinar</h5></a>
-					<!-- <span class="pacote_descricao">A Assinatura permite que a MQTM mantenha seu compromisso de criar uma experiência online divertida e segura. Não é preciso pagar para utilizar a MQTM, mas a assinatura permite que o autor tenha acesso a todos os pacotes de imagens já disponíveis e também aos que poderão ser lançados dentro do período de assinatura. A Assinatura Anual dá acesso total, pelo período de 360 dias corridos. <b>Na compra de uma Assinatura Anual, você leva gratuitamente mais 6 meses. Promoção por tempo limitado!</b> </span> -->
-				</div>
-			</div>
-			<div class="clearall"></div>
-			<br />
-			<br />
-			<div class="containerbottom_col_03"></div>
-		</div>
+
 		<div id="masterpromo_col_03">
-			<object
-				classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-				codebase="https://web.archive.org/web/20110805224627oe_/http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0"
-				width="230"
-				height="224"
-				id="bidu_col3"
-				align="middle"
-			>
-				<param name="allowScriptAccess" value="sameDomain" />
-				<param name="allowFullScreen" value="false" />
-				<param name="movie" value="/imagens/Col3_08_v2.swf" />
-				<param name="quality" value="high" />
-				<param name="wmode" value="transparent" />
-				<param name="bgcolor" value="#ffffff" />
-				<ruffle-embed
-					src="/web/20110805224627mp_/http://www.maquinadequadrinhos.com.br/imagens/Col3_08_v2.swf"
+			<embed src="/imagens/Col3_08_v2.swf"
 					quality="high"
 					wmode="transparent"
 					bgcolor="#ffffff"
@@ -872,51 +738,10 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					allowscriptaccess="sameDomain"
 					allowfullscreen="false"
 					type="application/x-shockwave-flash"
-					pluginspage="http://www.adobe.com/go/getflashplayer"
-				></ruffle-embed>
-			</object>
+					pluginspage="http://www.adobe.com/go/getflashplayer">
+			</embed>
 		</div>
-		<div class="container_col_03">
-			<div class="containerheader_col_03">
-				<img class="pacotesdeposes" src="/imagens/blank.png" alt="Pacotes" width="22px" height="20px" />
-				<h3><span id="ctl00_ContentPlaceHolder1_ucVitrine3_lblTitulo">Experimentar</span></h3>
-			</div>
-			<div class="pacotes">
-				<div class="pacotegratis">
-					<div class="pacote_foto">
-						<a href="/PacoteDetalhe.aspx?idPacote=60">
-							<img
-								class="pacote_foto_pacote"
-								src="/imagens/blank.png"
-								width="83px"
-								height="66px"
-								alt="Moldura"
-							/>
-							<img
-								class="pacote_foto_especifica"
-								src="/imagens/pacote_master.png"
-								width="67"
-								height="50"
-								alt="Pacote"
-							/>
-							<span class="pacote_vejamais">veja mais</span>
-						</a>
-					</div>
-					<br />
-					<br />
-					<br />
-					<span class="pacote_titulo">Pacote Básico</span>
-					<br />
-					<br />
-					<br />
-					<!-- <span class="pacote_descricao">O Pacote Básico está disponível gratuitamente para todos os autores da MQTM. Para se tornar um autor basta cadastrar-se no site. Este pacote é formado por mais de 300 imagens. O Pacote Básico permite criar quadrinhos que podem ser votados, comentados e publicados na revistinhas digital e física, basta utilizar a sua criatividade.</span> -->
-				</div>
-			</div>
-			<div class="clearall"></div>
-			<br />
-			<br />
-			<div class="containerbottom_col_03"></div>
-		</div>
+
 	</div>
 	<div class="clearall"></div>
 </div>

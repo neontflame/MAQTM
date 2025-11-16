@@ -4,12 +4,12 @@ $db = new PDO("mysql:host=" . $config['DB_HOST'] . ";dbname=" . $config['DB_NAME
 
 // hq trecos
 class HqTools {
-	public function requestIDator($id)
+	public function requestIDator($comicGuid)
 	{
 		global $db;
 
 		$rows = $db->prepare("SELECT * FROM hqs WHERE comicGuid = ?");
-		$rows->bindParam(1, $id);
+		$rows->bindParam(1, $comicGuid);
 		$rows->execute();
 		$hq = $rows->fetch(PDO::FETCH_OBJ);
 
@@ -33,11 +33,46 @@ class HqTools {
 		
 		$id = $db->lastInsertId();
 		
-		$screenshotsDir = $_SERVER['DOCUMENT_ROOT'] . '/Static/Screenshots';
+		$screenshotsDir = $_SERVER['DOCUMENT_ROOT'] . '/Arquivos/SaveGame/Screenshots';
 		$fpScreensh = fopen($screenshotsDir . '/' . $id . '.png',"wb");
 		fwrite($fpScreensh,base64_decode($screenShot));
 		fclose($fpScreensh);
 		
+		return $id;
+	}
+}
+
+// user trecos
+class UsuarioUtils {
+	public function requestIDator($userGuid)
+	{
+		global $db;
+
+		$rows = $db->prepare("SELECT * FROM usuarios WHERE userGuid = ?");
+		$rows->bindParam(1, $userGuid);
+		$rows->execute();
+		$user = $rows->fetch(PDO::FETCH_OBJ);
+
+		if ($user == false) {
+			return null;
+		}
+
+		return $user;
+	}
+	
+	public function criar($nome, $email, $senha, $pfp)
+	{
+		global $db;
+		
+		$rows = $db->prepare("INSERT INTO usuarios (nome, email, senha, pfp) VALUES (?, ?, ?, ?)");
+		$rows->bindParam(1, $nome);
+		$rows->bindParam(2, $email);
+		$hashword = password_hash($senha, PASSWORD_DEFAULT);
+		$rows->bindParam(3, $hashword);
+		$rows->bindParam(4, $pfp);
+		$rows->execute();
+		
+		$id = $db->lastInsertId();
 		return $id;
 	}
 }
