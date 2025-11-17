@@ -10,8 +10,11 @@ class GameGatewayReimplement
 {
 	public function Save($userGuid, $comicGuid, $saveData, $screenShot, $titulo, $descricao)
 	{
-		$hqTrecos = new HqTools();
-		$hqTrecos->criar($userGuid, $saveData, $screenShot, $titulo, $descricao);
+		if ($comicGuid != null) {
+			HqTools::editar($userGuid, $comicGuid, $saveData, $screenShot, $titulo, $descricao);
+		} else {
+			HqTools::criar($userGuid, $saveData, $screenShot, $titulo, $descricao);
+		}
 	}
 	public function OfflineScreenShotSave($screenShot, $titulo, $descricao)
 	{
@@ -19,13 +22,13 @@ class GameGatewayReimplement
 	}
 	public function Load($userGuid, $comicGuid, $readOnly)
 	{
-		$hqTrecos = new HqTools();
-		$comicData = $hqTrecos->requestIDator($comicGuid);
-
+		$comicData = HqTools::requestIDator($comicGuid);
+		$userData = UsuarioTools::requestIDator($comicData->userGuid);
+		
 		$innerXml = '<?xml version="1.0"?>' .
 			'<root>' .
 			'<c>' . $comicData->saveData . '</c>' .
-			'<a>' . $comicData->userGuid . '</a>' .
+			'<a>' . ($userData->apelido ?? "Desconhecido") . '</a>' .
 			'<t>' . $comicData->titulo . '</t>' .
 			'<d>' . $comicData->descricao . '</d>' .
 			'</root>';
