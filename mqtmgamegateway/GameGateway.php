@@ -4,6 +4,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Admin/Autoload.php";
 // unico problema e eu Nao Sei como sequer funciona um wsdl
 // entao nos vamos fumblar bags ate conseguir
 
+// nos fumblamos bags e conseguimos isso e fucking epico.
+
 $screenshotsDir = $_SERVER['DOCUMENT_ROOT'] . '/Arquivos/SaveGame/Screenshots';
 
 class GameGatewayReimplement
