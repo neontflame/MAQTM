@@ -10,11 +10,7 @@ class GameGatewayReimplement
 {
 	public function Save($userGuid, $comicGuid, $saveData, $screenShot, $titulo, $descricao)
 	{
-		if ($comicGuid != null) {
-			HqTools::editar($userGuid, $comicGuid, $saveData, $screenShot, $titulo, $descricao);
-		} else {
-			HqTools::criar($userGuid, $saveData, $screenShot, $titulo, $descricao);
-		}
+		HqTools::atualizar($userGuid, $comicGuid, $saveData, $screenShot, $titulo, $descricao);
 	}
 	public function OfflineScreenShotSave($screenShot, $titulo, $descricao)
 	{

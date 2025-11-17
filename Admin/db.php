@@ -20,40 +20,32 @@ class HqTools {
 		return $hq;
 	}
 
-	public static function criar($userGuid, $saveData, $screenShot, $titulo, $descricao)
+	public static function atualizar($userGuid, $comicGuid, $saveData, $screenShot, $titulo, $descricao)
 	{
 		global $db;
 		
-		$rows = $db->prepare("INSERT INTO hqs (userGuid, saveData, titulo, descricao) VALUES (?, ?, ?, ?)");
-		$rows->bindParam(1, $userGuid);
-		$rows->bindParam(2, $saveData);
-		$rows->bindParam(3, $titulo);
-		$rows->bindParam(4, $descricao);
-		$rows->execute();
-		
-		$id = $db->lastInsertId();
-		
-		$screenshotsDir = $_SERVER['DOCUMENT_ROOT'] . '/Arquivos/SaveGame/Screenshots';
-		$fpScreensh = fopen($screenshotsDir . '/' . $id . '.png',"wb");
-		fwrite($fpScreensh,base64_decode($screenShot));
-		fclose($fpScreensh);
-		
-		return $id;
-	}
-	
-	public static function editar($userGuid, $comicGuid, $saveData, $screenShot, $titulo, $descricao)
-	{
-		global $db;
-		
-		$rows = $db->prepare("UPDATE hqs SET userGuid = ?, saveData = ?, titulo = ?, descricao = ? WHERE comicGuid = ?");
-		$rows->bindParam(1, $userGuid);
-		$rows->bindParam(2, $saveData);
-		$rows->bindParam(3, $titulo);
-		$rows->bindParam(4, $descricao);
-		$rows->bindParam(5, $comicGuid);
-		$rows->execute();
-		
-		$id = $db->lastInsertId();
+		if ($comicGuid != null) {
+			// ediçao
+			$rows = $db->prepare("UPDATE hqs SET userGuid = ?, saveData = ?, titulo = ?, descricao = ? WHERE comicGuid = ?");
+			$rows->bindParam(1, $userGuid);
+			$rows->bindParam(2, $saveData);
+			$rows->bindParam(3, $titulo);
+			$rows->bindParam(4, $descricao);
+			$rows->bindParam(5, $comicGuid);
+			$rows->execute();
+			
+			$id = $comicGuid;
+		} else {
+			// criaçao
+			$rows = $db->prepare("INSERT INTO hqs (userGuid, saveData, titulo, descricao) VALUES (?, ?, ?, ?)");
+			$rows->bindParam(1, $userGuid);
+			$rows->bindParam(2, $saveData);
+			$rows->bindParam(3, $titulo);
+			$rows->bindParam(4, $descricao);
+			$rows->execute();
+			
+			$id = $db->lastInsertId();
+		}
 		
 		$screenshotsDir = $_SERVER['DOCUMENT_ROOT'] . '/Arquivos/SaveGame/Screenshots';
 		$fpScreensh = fopen($screenshotsDir . '/' . $id . '.png',"wb");
