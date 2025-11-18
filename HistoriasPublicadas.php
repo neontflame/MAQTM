@@ -1,6 +1,178 @@
 <?php 
 include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/SiteAbre.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
+
+
+class RenderizadorDeHq {
+	public static function doLado($comic, $tipoDeLado) {
+		?>
+			<div id="ctl00_ContentPlaceHolder1_ucHistoriaTopModulo<?= $tipoDeLado ?>_rptHistoriasCelulaMiniMiniCriterio_ctl00_ucHistoriaCelulaMini_divClassModular" class="popularFotos" >
+				<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>">
+					<img
+						src="/Arquivos/SaveGame/Screenshots/<?= $comic->comicGuid ?>.png"
+						id="ctl00_ContentPlaceHolder1_ucHistoriaTopModulo<?= $tipoDeLado ?>_rptHistoriasCelulaMiniMiniCriterio_ctl00_ucHistoriaCelulaMini_imgHistoria"
+						class="status_ultimahistoria_foto"
+						height="24"
+						width="34"
+						title="<?= $comic->titulo ?>"
+						alt="<?= $comic->titulo ?>"
+					/>
+				</a>
+			</div>
+		<?php
+	}
+	
+	public static function containerQuadrinhos($comic, $tipo, $aTag) {
+		switch ($tipo) {
+			case 1: ?>
+			<div class="container_quadrinhos">
+				<div class="container_quadrinhos_texto">
+					<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>">
+						<img
+							src="/Arquivos/SaveGame/Screenshots/<?= $comic->comicGuid ?>.png"
+							id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_imgHistoria"
+							title="<?= $comic->titulo ?>"
+							alt="<?= $comic->titulo ?>"
+						/>
+					</a>
+					
+					<span class="quadrinhos_titulo">
+						<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>"><?= $comic->titulo ?></a>
+					</span>
+					
+					<span class="quadrinhos_descricao">
+						<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>">
+							<?= explode("\n", $comic->descricao)[0] ?>
+						</a>
+					</span>
+					
+					<br />
+					
+					<div id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_DivBotoes" style="display: none" class="botoes">
+					</div>
+					
+					<span class="quadrinhos_autor"><a href="/AutorPerfil.aspx?idUsuario=<?= $comic->userGuid ?>"><?= UsuarioTools::requestIDator($comic->userGuid)->apelido ?></a> </span>
+					
+					<br />
+					
+					<span class="quadrinhos_visualizacao">
+						<img src="/imagens/blank.png" alt="visualizações" title="visualizações" />
+						<em>43</em>
+					</span>
+					
+					<span class="quadrinhos_comentarios">
+						<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>#comentario">
+							<img src="/imagens/blank.png" alt="comentários" title="comentários"/> 
+							<em>21</em>
+						</a>
+					</span>
+					
+					<div class="estrelas"> 
+						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_Nota1" class="quadrinhos_fav_full" width="17" height="17">
+						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_Nota2" class="quadrinhos_fav_full" width="17" height="17">
+						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_Nota3" class="quadrinhos_fav_full" width="17" height="17">
+						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_Nota4" class="quadrinhos_fav_full" width="17" height="17">
+						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_Nota5" class="quadrinhos_fav_full" width="17" height="17">
+					</div>
+				</div>
+				<div class="container_quadrinhos_valores" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_ucBarraCategoria_VotCat">
+					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_susto.png"/>
+					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_romance.png"/>
+					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_loucura.png"/>
+					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_humor.png"/>
+					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_ficcao.png"/>
+					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_acao.png"/>
+					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_drama.png"/>
+				</div>
+				<div class="container_quadrinhos_valores_moldura">
+					<img alt="Moldura" src="/imagens/voto_moldura.png" />
+				</div>
+			</div>
+			<?php
+				break;
+			case 2: ?>
+				<div class="container_quadrinhos">
+					<div class="container_quadrinhos_texto">
+						<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>">
+							<img src="/Arquivos/SaveGame/Screenshots/<?= $comic->comicGuid ?>.png"
+								id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula1_imgHistoria"
+								title="<?= $comic->titulo ?>"
+								alt="<?= $comic->titulo ?>"/>
+						</a>
+						<span class="quadrinhos_titulo">
+							<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>"><?= $comic->titulo ?></a>
+						</span>
+						<div
+							id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula1_DivBotoes"
+							style="display: none"
+							class="botoes"
+						></div>
+						<span class="quadrinhos_autor"><a href="/AutorPerfil.aspx?idUsuario=<?= $comic->userGuid ?>"><?= UsuarioTools::requestIDator($comic->userGuid)->apelido ?></a> </span>
+						<br />
+						<span class="quadrinhos_visualizacao">
+							<img src="/imagens/blank.png" alt="visualizações" title="visualizações" /> <em>43</em>
+						</span>
+						<span class="quadrinhos_comentarios">
+							<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>#comentario">
+								<img src="/imagens/blank.png" alt="comentários" title="comentários" /> <em>21</em>
+							</a>
+						</span>
+						<div class="estrelas">
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhores<?= $aTag ?>_ctl00_ucHistoriaCelula1_Nota1" class="quadrinhos_fav_full" width="17" height="17"/>
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhores<?= $aTag ?>_ctl00_ucHistoriaCelula1_Nota2" class="quadrinhos_fav_full" width="17" height="17"/>
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhores<?= $aTag ?>_ctl00_ucHistoriaCelula1_Nota3" class="quadrinhos_fav_full" width="17" height="17"/>
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhores<?= $aTag ?>_ctl00_ucHistoriaCelula1_Nota4" class="quadrinhos_fav_full" width="17" height="17"/>
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhores<?= $aTag ?>_ctl00_ucHistoriaCelula1_Nota5" class="quadrinhos_fav_full" width="17" height="17"/>
+						</div>
+					</div>
+				</div>
+			<?php
+				break;
+			case 3: ?>
+				<div class="container_quadrinhos">
+					<div class="container_quadrinhos_texto">
+						<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>">
+							<img
+								src="/Arquivos/SaveGame/Screenshots/<?= $comic->comicGuid ?>.png"
+								id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_imgHistoria"
+								title="<?= $comic->titulo ?>"
+								alt="<?= $comic->titulo ?>"
+							/>
+						</a>
+						<span class="quadrinhos_titulo">
+							<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>"><?= $comic->titulo ?></a>
+						</span>
+						<div
+							id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_DivBotoes"
+							style="display: none"
+							class="botoes"
+						></div>
+						<span class="quadrinhos_autor"
+							><a href="/AutorPerfil.aspx?idUsuario=<?= $comic->userGuid ?>"><?= UsuarioTools::requestIDator($comic->userGuid)->apelido ?></a>
+						</span>
+						<br />
+						<span class="quadrinhos_visualizacao">
+							<img src="/imagens/blank.png" alt="visualizações" title="visualizações" /> <em>11</em>
+						</span>
+						<span class="quadrinhos_comentarios">
+							<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>#comentario">
+								<img src="/imagens/blank.png" alt="comentários" title="comentários" /> <em>9</em>
+							</a>
+						</span>
+						<div class="estrelas">
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_Nota1" class="quadrinhos_fav_full" width="17" height="17"/>
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_Nota2" class="quadrinhos_fav_half" width="17" height="17" />
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_Nota3" class="quadrinhos_fav_empty" width="17" height="17" />
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_Nota4" class="quadrinhos_fav_empty" width="17" height="17" />
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_Nota5" class="quadrinhos_fav_empty" width="17" height="17" />
+						</div>
+					</div>
+				</div>
+			<?php 
+				break;
+		}
+	}
+}
 ?>
 <div id="master_middle">
 	<!-- <script type="text/javascript" src="/Javascript/google_service.js"> </script> <script type="text/javascript"> GS_googleAddAdSenseService("ca-pub-4592156504510145"); GS_googleEnableAllServices(); </script><script src="/Javascript/google_ads.js"></script> <script type="text/javascript"> GA_googleAddSlot("ca-pub-4592156504510145", "HistoriasPublicadas_Middle728x90"); </script> <script type="text/javascript"> GA_googleFetchAds(); </script> -->
@@ -31,19 +203,11 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 			<!-- msp porque voce insiste em IDs tao longos -->
 			<!-- aqui vao 9 dessas -->
 			<!-- hqzinhas do lado -->
-			<div id="ctl00_ContentPlaceHolder1_ucHistoriaTopModuloDasMais_rptHistoriasCelulaMiniMiniCriterio_ctl00_ucHistoriaCelulaMini_divClassModular" class="popularFotos" >
-				<a href="/HistoriaVisualizar.aspx?idHistoria=958197">
-					<img
-						src="/imagens/291d8781-d999-4ee1-93e3-48a0cd41f091.jpg"
-						id="ctl00_ContentPlaceHolder1_ucHistoriaTopModuloDasMais_rptHistoriasCelulaMiniMiniCriterio_ctl00_ucHistoriaCelulaMini_imgHistoria"
-						class="status_ultimahistoria_foto"
-						height="24"
-						width="34"
-						title="Título da HQ"
-						alt="Título da HQ"
-					/>
-				</a>
-			</div>
+			<?php
+				for ($i = 1; $i <= 9; $i++) {
+					RenderizadorDeHq::doLado(HqTools::requestIDator(1), 'DasMais');
+				}
+			?>
 			<!-- end hqzinhas do lado -->
 			
 			<br />
@@ -60,19 +224,11 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 			</div>
 			<!-- aqui vao mais 9 dessas -->
 			<!-- hqzinhas do lado -->
-			<div id="ctl00_ContentPlaceHolder1_ucHistoriaTopModuloComentadas_rptHistoriasCelulaMiniMiniCriterio_ctl00_ucHistoriaCelulaMini_divClassModular" class="popularFotos" >
-				<a href="/HistoriaVisualizar.aspx?idHistoria=958197">
-					<img
-						src="/imagens/291d8781-d999-4ee1-93e3-48a0cd41f091.jpg"
-						id="ctl00_ContentPlaceHolder1_ucHistoriaTopModuloComentadas_rptHistoriasCelulaMiniMiniCriterio_ctl00_ucHistoriaCelulaMini_imgHistoria"
-						class="status_ultimahistoria_foto"
-						height="24"
-						width="34"
-						title="Título da HQ"
-						alt="Título da HQ"
-					/>
-				</a>
-			</div>
+			<?php
+				for ($i = 1; $i <= 9; $i++) {
+					RenderizadorDeHq::doLado(HqTools::requestIDator(1), 'Comentadas');
+				}
+			?>
 			<!-- end hqzinhas do lado -->
 			
 			<br />
@@ -490,69 +646,11 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 			<br />
 			<!-- aqui sao 3 containers -->
 			<!-- container quadrinhos -->
-			<div class="container_quadrinhos">
-				<div class="container_quadrinhos_texto">
-					<a href="/HistoriaVisualizar.aspx?idHistoria=992789">
-						<img
-							src="/imagens/blank.png"
-							id="ctl00_ContentPlaceHolder1_rptHistoriasMelhoresDoMomento_ctl00_ucHistoriaCelula2_imgHistoria"
-							title="Desejo de brilhar pt. 6"
-							alt="Desejo de brilhar pt. 6"
-						/>
-					</a>
-					
-					<span class="quadrinhos_titulo">
-						<a href="/HistoriaVisualizar.aspx?idHistoria=992789">Título da HQ</a>
-					</span>
-					
-					<span class="quadrinhos_descricao">
-						<a href="/HistoriaVisualizar.aspx?idHistoria=992789">
-							Lorem ipsum dolor sit amet sei la eu esqueci o resto lorem ipsum lorem ipsum lorem ipsum lorem ipsilon como vai seu dia
-						</a>
-					</span>
-					
-					<br />
-					
-					<div id="ctl00_ContentPlaceHolder1_rptHistoriasMelhoresDoMomento_ctl00_ucHistoriaCelula2_DivBotoes" style="display: none" class="botoes">
-					</div>
-					
-					<span class="quadrinhos_autor"><a href="/AutorPerfil.aspx?idUsuario=249293">Autor</a> </span>
-					
-					<br />
-					
-					<span class="quadrinhos_visualizacao">
-						<img src="/imagens/blank.png" alt="visualizações" title="visualizações" />
-						<em>43</em>
-					</span>
-					
-					<span class="quadrinhos_comentarios">
-						<a href="/HistoriaVisualizar.aspx?idHistoria=992789#comentario">
-							<img src="/imagens/blank.png" alt="comentários" title="comentários"/> 
-							<em>21</em>
-						</a>
-					</span>
-					
-					<div class="estrelas"> 
-						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhoresDoMomento_ctl00_ucHistoriaCelula2_Nota1" class="quadrinhos_fav_full" width="17" height="17">
-						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhoresDoMomento_ctl00_ucHistoriaCelula2_Nota2" class="quadrinhos_fav_full" width="17" height="17">
-						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhoresDoMomento_ctl00_ucHistoriaCelula2_Nota3" class="quadrinhos_fav_full" width="17" height="17">
-						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhoresDoMomento_ctl00_ucHistoriaCelula2_Nota4" class="quadrinhos_fav_full" width="17" height="17">
-						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhoresDoMomento_ctl00_ucHistoriaCelula2_Nota5" class="quadrinhos_fav_full" width="17" height="17">
-					</div>
-				</div>
-				<div class="container_quadrinhos_valores" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhoresDoMomento_ctl00_ucHistoriaCelula2_ucBarraCategoria_VotCat">
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_susto.png"/>
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_romance.png"/>
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_loucura.png"/>
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_humor.png"/>
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_ficcao.png"/>
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_acao.png"/>
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_drama.png"/>
-				</div>
-				<div class="container_quadrinhos_valores_moldura">
-					<img alt="Moldura" src="/imagens/voto_moldura.png" />
-				</div>
-			</div>
+			<?php
+				RenderizadorDeHq::containerQuadrinhos(HqTools::requestIDator(1), 1, 'MelhoresDoMomento');
+				RenderizadorDeHq::containerQuadrinhos(HqTools::requestIDator(1), 1, 'MelhoresDoMomento');
+				RenderizadorDeHq::containerQuadrinhos(HqTools::requestIDator(1), 1, 'MelhoresDoMomento');
+			?>
 			<!-- end container quadrinhos -->
 			<div class="clearall"></div>
 			<a href="/HistoriasPublicadasDetalhe.aspx?crit=mom" class="botao_ir"> ver outras &gt;&gt;</a>
@@ -583,41 +681,11 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 			<br />
 			<!-- aqui tambem sao 3! -->
 			<!-- container quadrinhos (outro) -->
-			<div class="container_quadrinhos">
-				<div class="container_quadrinhos_texto">
-					<a href="/HistoriaVisualizar.aspx?idHistoria=995743">
-						<img src="/imagens/52432a1f-1311-41aa-ad4a-7cd70956aeb1.jpg"
-							id="ctl00_ContentPlaceHolder1_rptHistoriasMelhoresDaSemana_ctl00_ucHistoriaCelula1_imgHistoria"
-							title="Título da HQ"
-							alt="Título da HQ"/>
-					</a>
-					<span class="quadrinhos_titulo">
-						<a href="/HistoriaVisualizar.aspx?idHistoria=995743">Título da HQ</a>
-					</span>
-					<div
-						id="ctl00_ContentPlaceHolder1_rptHistoriasMelhoresDaSemana_ctl00_ucHistoriaCelula1_DivBotoes"
-						style="display: none"
-						class="botoes"
-					></div>
-					<span class="quadrinhos_autor"><a href="/AutorPerfil.aspx?idUsuario=352876">Autor</a> </span>
-					<br />
-					<span class="quadrinhos_visualizacao">
-						<img src="/imagens/blank.png" alt="visualizações" title="visualizações" /> <em>43</em>
-					</span>
-					<span class="quadrinhos_comentarios">
-						<a href="/HistoriaVisualizar.aspx?idHistoria=995743#comentario">
-							<img src="/imagens/blank.png" alt="comentários" title="comentários" /> <em>21</em>
-						</a>
-					</span>
-					<div class="estrelas">
-						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhoresDaSemana_ctl00_ucHistoriaCelula1_Nota1" class="quadrinhos_fav_full" width="17" height="17"/>
-						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhoresDaSemana_ctl00_ucHistoriaCelula1_Nota2" class="quadrinhos_fav_full" width="17" height="17"/>
-						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhoresDaSemana_ctl00_ucHistoriaCelula1_Nota3" class="quadrinhos_fav_full" width="17" height="17"/>
-						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhoresDaSemana_ctl00_ucHistoriaCelula1_Nota4" class="quadrinhos_fav_full" width="17" height="17"/>
-						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhoresDaSemana_ctl00_ucHistoriaCelula1_Nota5" class="quadrinhos_fav_full" width="17" height="17"/>
-					</div>
-				</div>
-			</div>
+			<?php
+				RenderizadorDeHq::containerQuadrinhos(HqTools::requestIDator(1), 2, 'MelhoresSemanal');
+				RenderizadorDeHq::containerQuadrinhos(HqTools::requestIDator(1), 2, 'MelhoresSemanal');
+				RenderizadorDeHq::containerQuadrinhos(HqTools::requestIDator(1), 2, 'MelhoresSemanal');
+			?>
 			<!-- end container quadrinhos (outro) -->
 			<div class="clearall"></div>
 			<a href="/HistoriasPublicadasDetalhe.aspx?crit=sem" class="botao_ir"> ver outras &gt;&gt;</a>
@@ -634,45 +702,10 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 				<!-- ooooh ceus isso vai ser meio maçante de programar -->
 				<!-- aqui vao 2 -->
 				<!-- container quadrinhos (Mais outro) -->
-				<div class="container_quadrinhos">
-					<div class="container_quadrinhos_texto">
-						<a href="/HistoriaVisualizar.aspx?idHistoria=1016269">
-							<img
-								src="/imagens/86ce1a53-6967-4712-a159-37563962210b.jpg"
-								id="ctl00_ContentPlaceHolder1_rptHistoriasDestaque_ctl00_ucHistoriaCelula3_imgHistoria"
-								title="dia dos pais"
-								alt="dia dos pais"
-							/>
-						</a>
-						<span class="quadrinhos_titulo">
-							<a href="/HistoriaVisualizar.aspx?idHistoria=1016269">Título da HQ</a>
-						</span>
-						<div
-							id="ctl00_ContentPlaceHolder1_rptHistoriasDestaque_ctl00_ucHistoriaCelula3_DivBotoes"
-							style="display: none"
-							class="botoes"
-						></div>
-						<span class="quadrinhos_autor"
-							><a href="/AutorPerfil.aspx?idUsuario=285782">Autor</a>
-						</span>
-						<br />
-						<span class="quadrinhos_visualizacao">
-							<img src="/imagens/blank.png" alt="visualizações" title="visualizações" /> <em>11</em>
-						</span>
-						<span class="quadrinhos_comentarios">
-							<a href="/HistoriaVisualizar.aspx?idHistoria=1016269#comentario">
-								<img src="/imagens/blank.png" alt="comentários" title="comentários" /> <em>9</em>
-							</a>
-						</span>
-						<div class="estrelas">
-							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasDestaque_ctl00_ucHistoriaCelula3_Nota1" class="quadrinhos_fav_full" width="17" height="17"/>
-							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasDestaque_ctl00_ucHistoriaCelula3_Nota2" class="quadrinhos_fav_half" width="17" height="17" />
-							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasDestaque_ctl00_ucHistoriaCelula3_Nota3" class="quadrinhos_fav_empty" width="17" height="17" />
-							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasDestaque_ctl00_ucHistoriaCelula3_Nota4" class="quadrinhos_fav_empty" width="17" height="17" />
-							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasDestaque_ctl00_ucHistoriaCelula3_Nota5" class="quadrinhos_fav_empty" width="17" height="17" />
-						</div>
-					</div>
-				</div>
+				<?php
+					RenderizadorDeHq::containerQuadrinhos(HqTools::requestIDator(1), 3, 'Destaque');
+					RenderizadorDeHq::containerQuadrinhos(HqTools::requestIDator(1), 3, 'Destaque');
+				?>
 				<!-- end container quadrinhos (Mais outro) -->
 				
 				<div class="clearall"></div>

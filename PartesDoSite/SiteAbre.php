@@ -1,3 +1,7 @@
+<?php 
+include $_SERVER['DOCUMENT_ROOT'] . "/Admin/Autoload.php";
+
+?>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title> Máquina Aberta de Quadrinhos da Turma da Mônica - Crie e leia Histórias em Quadrinhos (HQ) com a Mônica, Cebolinha, Cascão e Magali. </title>
 <meta name="title" content="Máquina de Quadrinhos da Turma da Mônica - Crie e leia Histórias em Quadrinhos (HQ) com a Mônica, Cebolinha, Cascão e Magali.">
