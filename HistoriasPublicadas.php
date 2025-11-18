@@ -1,4 +1,8 @@
 <?php 
+include $_SERVER['DOCUMENT_ROOT'] . "/Admin/Autoload.php";
+
+$tipoDPagina = 'home';
+
 include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/SiteAbre.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 
@@ -57,7 +61,7 @@ class RenderizadorDeHq {
 					
 					<span class="quadrinhos_visualizacao">
 						<img src="/imagens/blank.png" alt="visualizações" title="visualizações" />
-						<em>43</em>
+						<em><?= $comic->views ?></em>
 					</span>
 					
 					<span class="quadrinhos_comentarios">
@@ -110,7 +114,7 @@ class RenderizadorDeHq {
 						<span class="quadrinhos_autor"><a href="/AutorPerfil.aspx?idUsuario=<?= $comic->userGuid ?>"><?= UsuarioTools::requestIDator($comic->userGuid)->apelido ?></a> </span>
 						<br />
 						<span class="quadrinhos_visualizacao">
-							<img src="/imagens/blank.png" alt="visualizações" title="visualizações" /> <em>43</em>
+							<img src="/imagens/blank.png" alt="visualizações" title="visualizações" /> <em><?= $comic->views ?></em>
 						</span>
 						<span class="quadrinhos_comentarios">
 							<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>#comentario">
@@ -152,7 +156,7 @@ class RenderizadorDeHq {
 						</span>
 						<br />
 						<span class="quadrinhos_visualizacao">
-							<img src="/imagens/blank.png" alt="visualizações" title="visualizações" /> <em>11</em>
+							<img src="/imagens/blank.png" alt="visualizações" title="visualizações" /> <em><?= $comic->views ?></em>
 						</span>
 						<span class="quadrinhos_comentarios">
 							<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>#comentario">

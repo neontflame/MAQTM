@@ -1,13 +1,9 @@
-<?php 
-include $_SERVER['DOCUMENT_ROOT'] . "/Admin/Autoload.php";
-
-?>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title> Máquina Aberta de Quadrinhos da Turma da Mônica - Crie e leia Histórias em Quadrinhos (HQ) com a Mônica, Cebolinha, Cascão e Magali. </title>
-<meta name="title" content="Máquina de Quadrinhos da Turma da Mônica - Crie e leia Histórias em Quadrinhos (HQ) com a Mônica, Cebolinha, Cascão e Magali.">
+<title> <?= $meta["titulo"] ?? 'Máquina Aberta de Quadrinhos da Turma da Mônica - Crie e leia Histórias em Quadrinhos (HQ) com a Mônica, Cebolinha, Cascão e Magali.' ?> </title>
+<meta name="title" content="<?= $meta["titulo"] ?? 'Máquina Aberta de Quadrinhos da Turma da Mônica - Crie e leia Histórias em Quadrinhos (HQ) com a Mônica, Cebolinha, Cascão e Magali.' ?> ">
 <meta name="url" content="www.maquinadequadrinhos.com.br">
-<meta name="description" content="Crie suas próprias histórias em quadrinhos da Turma da Mônica.">
-<link rel="image_src" href="/Editor/Images/Logo_maquina.png">
+<meta name="description" content="<?= $meta["descricao"] ?? 'Crie suas próprias histórias em quadrinhos da Turma da Mônica.' ?>">
+<link rel="image_src" href="<?= $meta["imagem"] ?? '/Editor/Images/Logo_maquina.png' ?>">
 <meta name="keywords" content="Turma da Mônica, Mônica, Cebolinha, Cascão, Magali, Maurício de Sousa, Bidu, Quadrinhos, Criar histórias em Quadrinhos, Criação de histórias em Quadrinhos, Criar histórias, Criação de histórias, ">
 <meta name="charset" content="ISO-8859-1">
 <meta name="autor" content="Maurício de Sousa Produções">
@@ -32,7 +28,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Admin/Autoload.php";
 <script type="text/javascript" src="/Javascript/ajax.js" language="javascript"></script>
 </head>
 
-<body visible="true" id="ctl00_home" onload="">
+<body visible="true" id="ctl00_<?= $tipoDPagina ?>" onload="">
     <div id="master_container">
         <form name="aspnetForm" method="post" action="HistoriasPublicadas.aspx" id="aspnetForm">
             <div>

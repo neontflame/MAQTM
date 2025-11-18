@@ -47,4 +47,9 @@ function copyXmlElements($from, $to)
 		copyXmlElements($child, $newChild);
 	}
 }
+
+function formatarData($datetime) {
+	$date = date_create($datetime);
+	return $date;
+}
 ?>

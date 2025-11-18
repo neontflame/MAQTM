@@ -1,5 +1,5 @@
 <embed src="/Editor/MQTM_Mainv4_9.swf" 
-flashvars="userGuid=1&modeStartup=1" 
+flashvars="userGuid=1&comicGuid=3&modeStartup=3" 
 wmode="transparent" 
 id="MQTM_Main" 
 quality="high" 

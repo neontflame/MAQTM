@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 17/11/2025 às 16:45
+-- Tempo de geração: 18/11/2025 às 20:36
 -- Versão do servidor: 9.1.0
 -- Versão do PHP: 8.0.30
 
@@ -26,6 +26,23 @@ USE `maqtm`;
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `comentarios`
+--
+
+DROP TABLE IF EXISTS `comentarios`;
+CREATE TABLE IF NOT EXISTS `comentarios` (
+  `comentarioGuid` int NOT NULL AUTO_INCREMENT,
+  `userGuid` int NOT NULL,
+  `historiaGuid` int NOT NULL,
+  `respostaGuid` int NOT NULL,
+  `conteudo` text COLLATE utf8mb4_general_ci NOT NULL,
+  `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`comentarioGuid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `hqs`
 --
 
@@ -37,6 +54,7 @@ CREATE TABLE IF NOT EXISTS `hqs` (
   `titulo` text COLLATE utf8mb4_general_ci NOT NULL,
   `descricao` text COLLATE utf8mb4_general_ci NOT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `views` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`comicGuid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
