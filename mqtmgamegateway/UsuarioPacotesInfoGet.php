@@ -15,6 +15,10 @@ foreach ($directories as $dir) {
 		$nome = 'Pacote Básico';
 	}
 	
+	if (basename($dir) == 'Queixolas') {
+		$nome = 'queioxnes';
+	}
+	
 	if (!in_array(basename($dir), $blacklistDePacotes)) {
 		echo '<pack guid="' . basename($dir) . '">' . 
 				'<title>'. $nome .'</title>' .

@@ -65,7 +65,6 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					
 					<div class="clearall"></div>	
 						<div id="botoes_sociais">
-							<iframe allowtransparency="true" frameborder="0" scrolling="no" src="./HistoriaVisualizar_files/tweet_button.1324331373.html" class="twitter-share-button twitter-count-none" title="Twitter Tweet Button" style="width: 66px; height: 20px;"></iframe>
 							<a name="fb_share" type="icon" class="botao_facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fweb.archive.org%2Fweb%2F20111229015108%2Fhttp%3A%2F%2Fwww.maquinadequadrinhos.com.br%2FHistoriaVisualizar.aspx%3FidHistoria%3D1145961&amp;t=1955-2011%20-%20M%C3%A1quina%20de%20Quadrinhos%20da%20Turma%20da%20M%C3%B4nica&amp;src=sp" style="text-decoration: none;"><span class="FBConnectButton_Simple"><span class="FBConnectButton_Text_Simple">﻿</span></span></a>
 							<a href="http://www.blogger.com/blog_this.pyra?t&amp;u=http%3a%2f%2fwww.maquinadequadrinhos.com.br%2fHistoriaVisualizar.aspx%3fidHistoria%3d1145961&amp;n=1955-2011+-+M%c3%a1quina+de+Quadrinhos+da+Turma+da+M%c3%b4nica&amp;pli=1" target="_blank" title="Compartilhar no Blogger !" class="blogger"><img alt="Compartilhar no Blogger !" src="./HistoriaVisualizar_files/blogger.gif" style="width:16px; height:16px; padding:0; border:0; vertical-align:middle;"></a> 
 							
@@ -1440,10 +1439,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 						<img class="dicasTop" src="/imagens/monitor_menuDicas_top.png" alt="Dicas da MQTM">
 						
 						<div class="dicasFundo">			   
-							<div id="dicasDiversas" style="display: block;">1) 1/12 - <b>Sempre que ler uma história, não deixe de dar a sua opinião votando</b>. O seu voto tem o poder de fazer com que a Máquina de Quadrinhos da Turma da Mônica se torne uma fonte de histórias divertidas e educativas, além de incentivar o autor a criar mais histórias e melhorar.<a href="#" id="lnkDicaProxima">Próxima</a> 
-	
-
-</div> 
+							<div id="dicasDiversas" style="display: block;">1) 1/12 - <b>Sempre que ler uma história, não deixe de dar a sua opinião votando</b>. O seu voto tem o poder de fazer com que a Máquina de Quadrinhos da Turma da Mônica se torne uma fonte de histórias divertidas e educativas, além de incentivar o autor a criar mais histórias e melhorar.<a href="#" id="lnkDicaProxima">Próxima</a> </div> 
 						</div>
 						
 						<img src="/imagens/monitor_menuDicas_bottom.png" alt="Dicas da MQTM">

@@ -1,12 +1,56 @@
-<?php 
+<?php
 include $_SERVER['DOCUMENT_ROOT'] . "/Admin/Autoload.php";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	// copiei do especulamente #lol
+	function checagens($db, $email, $senha)
+	{
+		if (!isset($email) || !isset($senha)) {
+			echo("Preencha todos os campos!");
+			return null;
+		}
+
+		// Verifica se o usuário existe
+		$stmt = $db->prepare("SELECT * FROM usuarios WHERE email = ?");
+		$stmt->bindParam(1, $email);
+		$stmt->execute();
+		if ($stmt->rowCount() == 0) {
+			echo("Usuário ou senha incorretos!");
+			return null;
+		}
+
+		// Checa se a senha está correta
+		$row = $stmt->fetch(PDO::FETCH_OBJ);
+		if (!password_verify($senha, $row->senha)) {
+			echo("Usuário ou senha incorretos!");
+			return null;
+		}
+
+		return [
+			'userGuid' => $row->userGuid,
+			'nome' => $row->nome,
+		];
+	}
+
+	$entradas = checagens($db, $_POST['ctl00$ContentPlaceHolder1$ucusuariologin$EmailTextBox'] ?? null, $_POST['ctl00$ContentPlaceHolder1$ucusuariologin$SenhaTextBox'] ?? null);
+
+	if ($entradas) {
+		$_SESSION['userGuid'] = $entradas['userGuid'];
+		$_SESSION['nome'] = $entradas['nome'];
+		// info("Olá de novo novamente, " . $entradas['username'] . "!");
+		redirect('/HistoriasPublicadas.aspx');
+	}
+}
+
+$tipoDPagina = 'logincadastro';
+$oPostEmQuestao = '/Privado/Login.aspx';
+
 include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/SiteAbre.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 ?>
 	<div id="master_middle">
 		<div id="master_col_01">
 			<div id="masterpromo_col_01">
-
 					<embed src="/imagens/Col1_04_v2.swf" quality="high" wmode="transparent" bgcolor="#ffffff" width="140" height="200" name="franja_col1" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash">
 			</div>
 		</div>
