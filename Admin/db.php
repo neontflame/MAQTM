@@ -54,6 +54,22 @@ class HqTools {
 		
 		return $id;
 	}
+	
+	public static function comicMaisRecente($userGuid)
+	{
+		global $db;
+
+		$rows = $db->prepare("SELECT * FROM hqs WHERE userGuid = ? ORDER BY comicGuid DESC LIMIT 1");
+		$rows->bindParam(1, $userGuid);
+		$rows->execute();
+		$hq = $rows->fetch(PDO::FETCH_OBJ);
+
+		if ($hq == false) {
+			return null;
+		}
+
+		return $hq;
+	}
 }
 
 // user trecos
@@ -88,6 +104,65 @@ class UsuarioTools {
 		
 		$id = $db->lastInsertId();
 		return $id;
+	}
+}
+
+
+// comentario trecos
+class ComentarioTools {
+	public static function requestIDator($comentarioGuid)
+	{
+		global $db;
+
+		$rows = $db->prepare("SELECT * FROM comentarios WHERE comentarioGuid = ?");
+		$rows->bindParam(1, $comentarioGuid);
+		$rows->execute();
+		$comentaro = $rows->fetch(PDO::FETCH_OBJ);
+
+		if ($comentaro == false) {
+			return null;
+		}
+
+		return $comentaro;
+	}
+
+	public static function comentariosDeUmaHq($comicGuid, $pagina = null, $perPage = 10)
+	{
+		global $comentarioPaginas;
+		$comentarios = [];
+		$comentariosMasChique = [];
+		
+		global $db;
+		
+		if ($pagina != null) {
+			$rows = $db->prepare("SELECT COUNT(*) as count FROM comentarios WHERE comicGuid = ?");
+			$rows->bindParam(1, $comicGuid);
+			$rows->execute();
+			$count = $rows->fetch(PDO::FETCH_OBJ)->count;
+	
+			$comentarioPaginas = ceil($count / $perPage);
+			$offset = ($pagina - 1) * $perPage;
+	
+			$rows = $db->prepare("SELECT * FROM comentarios WHERE comicGuid = ? LIMIT ? OFFSET ?");
+			$rows->bindParam(1, $comicGuid);
+			$rows->bindParam(2, $perPage, PDO::PARAM_INT);
+			$rows->bindParam(3, $offset, PDO::PARAM_INT);
+			$rows->execute();
+		} else {
+			$rows = $db->prepare("SELECT * FROM comentarios WHERE comicGuid = ?");
+			$rows->bindParam(1, $comicGuid);
+			$rows->execute();
+		}
+		
+		while ($comcomic = $rows->fetch(PDO::FETCH_OBJ)) {
+			array_push($comentariosMasChique, $comcomic);
+		}
+		
+		foreach ($comentariosMasChique as $commy) {
+			array_push($comentarios, $commy->comentarioGuid);
+		}
+
+		return $comentarios;
 	}
 }
 

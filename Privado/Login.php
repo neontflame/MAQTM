@@ -1,12 +1,25 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . "/Admin/Autoload.php";
+$erro = null;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	// copiei do especulamente #lol
 	function checagens($db, $email, $senha)
 	{
-		if (!isset($email) || !isset($senha)) {
-			echo("Preencha todos os campos!");
+		global $erro;
+		
+		if (!isset($email) && !isset($senha)) {
+			$erro = "Preencha todos os campos!";
+			return null;
+		}
+		
+		if (!isset($email) || $email == '') {
+			$erro = "E-mail é obrigatório!";
+			return null;
+		}
+		
+		if (!isset($senha) || $senha == '') {
+			$erro = "Senha é obrigatória!";
 			return null;
 		}
 
@@ -15,14 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$stmt->bindParam(1, $email);
 		$stmt->execute();
 		if ($stmt->rowCount() == 0) {
-			echo("Usuário ou senha incorretos!");
+			$erro = "Usuário ou senha incorretos!";
 			return null;
 		}
 
 		// Checa se a senha está correta
 		$row = $stmt->fetch(PDO::FETCH_OBJ);
 		if (!password_verify($senha, $row->senha)) {
-			echo("Usuário ou senha incorretos!");
+			$erro = "Usuário ou senha incorretos!";
 			return null;
 		}
 
@@ -70,6 +83,9 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 									Senha</label>
 								<input name="ctl00$ContentPlaceHolder1$ucusuariologin$SenhaTextBox" type="password" id="ctl00_ContentPlaceHolder1_ucusuariologin_SenhaTextBox" tabindex="2" class="senha">
 								</p>
+							<?php if ($erro != null) : ?>
+							<span class="error"><?= $erro ?></span>
+							<?php endif; ?>
 							<p>
 								<span css=""><input id="ctl00_ContentPlaceHolder1_ucusuariologin_cbxLoginLembrar" type="checkbox" name="ctl00$ContentPlaceHolder1$ucusuariologin$cbxLoginLembrar" tabindex="3"><label for="ctl00_ContentPlaceHolder1_ucusuariologin_cbxLoginLembrar"> Permanecer logado.</label></span>		
 							</p>

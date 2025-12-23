@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 18/11/2025 às 20:36
+-- Tempo de geração: 23/12/2025 às 23:52
 -- Versão do servidor: 9.1.0
 -- Versão do PHP: 8.0.30
 
@@ -29,12 +29,11 @@ USE `maqtm`;
 -- Estrutura para tabela `comentarios`
 --
 
-DROP TABLE IF EXISTS `comentarios`;
 CREATE TABLE IF NOT EXISTS `comentarios` (
   `comentarioGuid` int NOT NULL AUTO_INCREMENT,
   `userGuid` int NOT NULL,
-  `historiaGuid` int NOT NULL,
-  `respostaGuid` int NOT NULL,
+  `comicGuid` int NOT NULL,
+  `respostaGuid` int DEFAULT NULL,
   `conteudo` text COLLATE utf8mb4_general_ci NOT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`comentarioGuid`)
@@ -46,7 +45,6 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
 -- Estrutura para tabela `hqs`
 --
 
-DROP TABLE IF EXISTS `hqs`;
 CREATE TABLE IF NOT EXISTS `hqs` (
   `comicGuid` int NOT NULL AUTO_INCREMENT,
   `userGuid` int NOT NULL,
@@ -64,7 +62,6 @@ CREATE TABLE IF NOT EXISTS `hqs` (
 -- Estrutura para tabela `usuarios`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `userGuid` int NOT NULL AUTO_INCREMENT,
   `nome` text COLLATE utf8mb4_general_ci NOT NULL,
@@ -72,10 +69,46 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `senha` text COLLATE utf8mb4_general_ci NOT NULL,
   `dataNasc` date NOT NULL,
   `apelido` text COLLATE utf8mb4_general_ci NOT NULL,
-  `pfp` text COLLATE utf8mb4_general_ci NOT NULL,
+  `pfp` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'Default',
   `moderador` tinyint(1) NOT NULL DEFAULT '0',
   `dataDeCriaçao` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`userGuid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `votos_estrela`
+--
+
+CREATE TABLE IF NOT EXISTS `votos_estrela` (
+  `votoGuid` int NOT NULL AUTO_INCREMENT,
+  `userGuid` int NOT NULL,
+  `comicGuid` int NOT NULL,
+  `estrelas` int NOT NULL,
+  `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`votoGuid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `votos_genero`
+--
+
+CREATE TABLE IF NOT EXISTS `votos_genero` (
+  `votoGuid` int NOT NULL AUTO_INCREMENT,
+  `userGuid` int NOT NULL,
+  `comicGuid` int NOT NULL,
+  `roteiro` int NOT NULL,
+  `romance` int NOT NULL,
+  `diversao` int NOT NULL,
+  `humor` int NOT NULL,
+  `inovacao` int NOT NULL,
+  `aventura` int NOT NULL,
+  `arte` int NOT NULL,
+  `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`votoGuid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
 
