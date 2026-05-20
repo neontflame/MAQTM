@@ -6,7 +6,10 @@
 	- deixar aparencia do treco de postar comentarios mais veridica a como era na epoca
 - pesquisar historias
 - paginas de categoria de historia
+- pagina de noticias
+
 - pagina inicial so que ela nao mostra so uma historia
+- ver se algum usuario ta online ou nao
 - mais coisas que eu provavelmente devo ter esquecido
 
 planeta robo infelizmente e impossivel restaurar pq o swf do jogo (bem como os niveis se os arquivos deles forem separados) nao tao arquivados no wayback machine :( 
