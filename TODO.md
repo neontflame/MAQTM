@@ -1,5 +1,6 @@
 # o que tem pra fazer ainda
 - cadastro de conta
+- poder votar em historias
 - pagina de criaçao de historias
 - paginas de perfil
 - postagem de comentarios

@@ -92,7 +92,22 @@ class HqTools {
 	{
 		global $db;
 
-		$rows = $db->prepare("SELECT AVG(estrelas) AS mediaEstrelas FROM votos_estrela WHERE comicGuid = ?");
+		// $rows = $db->prepare("SELECT AVG(estrelas) AS mediaEstrelas FROM votos_estrela WHERE comicGuid = ?");
+		$rows = $db->prepare("WITH votos_media AS (
+    SELECT comicGuid, arte AS voto FROM votos_genero
+    UNION ALL
+    SELECT comicGuid, aventura AS voto FROM votos_genero
+    UNION ALL
+    SELECT comicGuid, diversao AS voto FROM votos_genero
+    UNION ALL
+    SELECT comicGuid, humor AS voto FROM votos_genero
+    UNION ALL
+    SELECT comicGuid, inovacao AS voto FROM votos_genero
+    UNION ALL
+    SELECT comicGuid, romance AS voto FROM votos_genero
+    UNION ALL
+    SELECT comicGuid, roteiro AS voto FROM votos_genero)
+ SELECT AVG(voto) as mediaEstrelas FROM votos_media WHERE comicGuid = ?");
 		$rows->bindParam(1, $comicGuid);
 		$rows->execute();
 		$quant = $rows->fetch(PDO::FETCH_OBJ);
@@ -102,6 +117,44 @@ class HqTools {
 		}
 
 		return $quant->mediaEstrelas;
+	}
+
+	public static function quantVotos($comicGuid, $category = null)
+	{
+		global $db;
+		
+		if ($category != null) {
+			$rows = $db->prepare("SELECT COUNT(*) AS contagem FROM votos_genero WHERE comicGuid = ? AND $category IS NOT NULL");
+			$rows->bindParam(1, $comicGuid);
+			$rows->execute();
+			$quant = $rows->fetch(PDO::FETCH_OBJ);
+		} else {
+			$rows = $db->prepare("SELECT COUNT(*) AS contagem FROM votos_genero WHERE comicGuid = ?");
+			$rows->bindParam(1, $comicGuid);
+			$rows->execute();
+			$quant = $rows->fetch(PDO::FETCH_OBJ);
+		}
+		if ($quant == false) {
+			return 0;
+		}
+
+		return $quant->contagem;
+	}
+	
+	public static function votoTodosCategoria($comicGuid, $category)
+	{
+		global $db;
+
+		$rows = $db->prepare("SELECT SUM($category) AS todaCategoria FROM votos_genero WHERE comicGuid = ?");
+		$rows->bindParam(1, $comicGuid);
+		$rows->execute();
+		$quant = $rows->fetch(PDO::FETCH_OBJ);
+
+		if ($quant == false) {
+			return 0;
+		}
+		
+		return $quant->todaCategoria;
 	}
 }
 

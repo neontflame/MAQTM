@@ -337,13 +337,13 @@ $comentos = ComentarioTools::comentariosDeUmaHq($id);
 					<span>Inovação</span> <span class="categoria_principal">Aventura</span> <span>Arte</span>
 				</div>
 				<div id="ctl00_ContentPlaceHolder1_ucBarraCategoria_VotCat" class="container_quadrinhos_valores">
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left:-24%;" alt="30%" src="/imagens/barra_susto.png">
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left:-26%;" src="/imagens/barra_romance.png">
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left:-25%;" src="/imagens/barra_loucura.png">
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left:-26%;" src="/imagens/barra_humor.png">
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left:-24%;" src="/imagens/barra_ficcao.png">
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left:-25%;" src="/imagens/barra_acao.png">
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left:-24%;" src="/imagens/barra_drama.png">	
+					<img style="width: <?= 146 * VotoManager::getPercents($id)['roteiro'] ?>px; height: 14px; margin-top: 2px; margin-left:-24%;" alt="30%" src="/imagens/barra_susto.png">
+					<img style="width: <?= 146 * VotoManager::getPercents($id)['romance'] ?>px; height: 14px; margin-top: 2px; margin-left:-26%;" src="/imagens/barra_romance.png">
+					<img style="width: <?= 146 * VotoManager::getPercents($id)['diversao'] ?>px; height: 14px; margin-top: 2px; margin-left:-25%;" src="/imagens/barra_loucura.png">
+					<img style="width: <?= 146 * VotoManager::getPercents($id)['humor'] ?>px; height: 14px; margin-top: 2px; margin-left:-26%;" src="/imagens/barra_humor.png">
+					<img style="width: <?= 146 * VotoManager::getPercents($id)['inovacao'] ?>px; height: 14px; margin-top: 2px; margin-left:-24%;" src="/imagens/barra_ficcao.png">
+					<img style="width: <?= 146 * VotoManager::getPercents($id)['aventura'] ?>px; height: 14px; margin-top: 2px; margin-left:-25%;" src="/imagens/barra_acao.png">
+					<img style="width: <?= 146 * VotoManager::getPercents($id)['arte'] ?>px; height: 14px; margin-top: 2px; margin-left:-24%;" src="/imagens/barra_drama.png">	
 				</div>
 				<div class="container_quadrinhos_valores_moldura">
 					<img alt="Moldura" src="/imagens/voto_moldura.png">
@@ -353,7 +353,7 @@ $comentos = ComentarioTools::comentariosDeUmaHq($id);
 				</div>
 				<span class="quadrinhos_votos">Votos:
 				<em>
-				<span id="ctl00_ContentPlaceHolder1_lblVotosQtd">91</span></em></span>
+				<span id="ctl00_ContentPlaceHolder1_lblVotosQtd"><?= HqTools::quantVotos($id) ?></span></em></span>
 				<div class="clearall">
 				</div>
 				<div class="containerbottom_col_03">

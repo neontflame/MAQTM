@@ -156,6 +156,24 @@ class EstrelaManager {
 	}
 }
 
+
+class VotoManager {
+	public static function getPercents($comicGuid) {
+		$categorias = ["arte", "aventura", "diversao", "humor", "inovacao", "romance", "roteiro"];
+		$arrayMassa = [];
+		
+		foreach($categorias as $cat) {
+			if (HqTools::quantVotos($comicGuid, $cat) == 0) {
+				$arrayMassa[$cat] = 0;
+			} else {
+				$arrayMassa[$cat] = (HqTools::votoTodosCategoria($comicGuid, $cat) / HqTools::quantVotos($comicGuid, $cat)) / 5;
+			}
+		}
+		
+		return $arrayMassa;
+	}
+}
+
 class RenderizadorDeHq {
 	public static function doLado($comic, $tipoDeLado) {
 		?>
@@ -229,13 +247,13 @@ class RenderizadorDeHq {
 					</div>
 				</div>
 				<div class="container_quadrinhos_valores" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_ucBarraCategoria_VotCat">
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_susto.png"/>
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_romance.png"/>
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_loucura.png"/>
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_humor.png"/>
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_ficcao.png"/>
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_acao.png"/>
-					<img style="width: 144px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_drama.png"/>
+					<img style="width: <?= 146 * VotoManager::getPercents($comic->comicGuid)['roteiro'] ?>px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_susto.png"/>
+					<img style="width: <?= 146 * VotoManager::getPercents($comic->comicGuid)['romance'] ?>px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_romance.png"/>
+					<img style="width: <?= 146 * VotoManager::getPercents($comic->comicGuid)['diversao'] ?>px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_loucura.png"/>
+					<img style="width: <?= 146 * VotoManager::getPercents($comic->comicGuid)['humor'] ?>px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_humor.png"/>
+					<img style="width: <?= 146 * VotoManager::getPercents($comic->comicGuid)['inovacao'] ?>px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_ficcao.png"/>
+					<img style="width: <?= 146 * VotoManager::getPercents($comic->comicGuid)['aventura'] ?>px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_acao.png"/>
+					<img style="width: <?= 146 * VotoManager::getPercents($comic->comicGuid)['arte'] ?>px; height: 14px; margin-top: 2px; margin-left: -22%" src="/imagens/barra_drama.png"/>
 				</div>
 				<div class="container_quadrinhos_valores_moldura">
 					<img alt="Moldura" src="/imagens/voto_moldura.png" />
