@@ -15,8 +15,9 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 $comentarioPaginas = 1;
 $comentarioPaginaAtual = $_GET['pagina'] ?? 1;
 
-$minhaComicMaisRecente = HqTools::comicMaisRecente($usuario->userGuid);
-
+if ($usuario != null) {
+	$minhaComicMaisRecente = HqTools::comicMaisRecente($usuario->userGuid);
+}
 $comentos = ComentarioTools::comentariosDeUmaHq($id);
 ?><div id="master_middle">
 	<div id="master_col_02" style="width: 740px;">
@@ -80,7 +81,11 @@ $comentos = ComentarioTools::comentariosDeUmaHq($id);
 			</div>
 			<div id="status_historia">
 				<div class="estrelas">
-					<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_Nota1" class="quadrinhos_fav_full" width="17" height="17"><img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_Nota2" class="quadrinhos_fav_full" width="17" height="17"><img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_Nota3" class="quadrinhos_fav_full" width="17" height="17"><img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_Nota4" class="quadrinhos_fav_full" width="17" height="17"><img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_Nota5" class="quadrinhos_fav_half" width="17" height="17">
+					<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_Nota1" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($historiaInfo->comicGuid))[0] ?>" width="17" height="17">
+					<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_Nota2" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($historiaInfo->comicGuid))[1] ?>" width="17" height="17">
+					<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_Nota3" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($historiaInfo->comicGuid))[2] ?>" width="17" height="17">
+					<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_Nota4" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($historiaInfo->comicGuid))[3] ?>" width="17" height="17">
+					<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_Nota5" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($historiaInfo->comicGuid))[4] ?>" width="17" height="17">
 				</div>
 				<span class="quadrinhos_visualizacao">
 				<img src="/imagens/blank.png" alt="visualizações" title="visualizações">
@@ -301,11 +306,19 @@ $comentos = ComentarioTools::comentariosDeUmaHq($id);
 						Quer dar seu voto?
 					</h3>
 				</div>
+				<?php if ($usuario == null) : ?>
 				<div class="status_comentario">
 					<center>
 						<p><a href="/Cadastro.aspx?r=1">Cadastre-se</a> ou faça o <a id="ctl00_ContentPlaceHolder1_lkBtnLogin3" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$lkBtnLogin3&#39;,&#39;&#39;)">login</a> caso você já seja um membro.</p>
 					</center>
 				</div>
+				<?php else : ?>
+				<div class="status_comentario">
+					<center>
+						<p>todo fazer a FUCKING funcionalidade</p>
+					</center>
+				</div>
+				<?php endif; ?>
 				<div class="containerbottom_col_03"></div>
 			</div>
 			<!-- Tag de publicidade Google  - SmallSquare -->

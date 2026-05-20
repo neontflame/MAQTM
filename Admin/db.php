@@ -70,6 +70,39 @@ class HqTools {
 
 		return $hq;
 	}
+
+	
+	public static function quantComentarios($comicGuid)
+	{
+		global $db;
+
+		$rows = $db->prepare("SELECT COUNT(*) AS contagem FROM comentarios WHERE comicGuid = ?");
+		$rows->bindParam(1, $comicGuid);
+		$rows->execute();
+		$quant = $rows->fetch(PDO::FETCH_OBJ);
+
+		if ($quant == false) {
+			return 0;
+		}
+
+		return $quant->contagem;
+	}
+	
+	public static function votoMedia($comicGuid)
+	{
+		global $db;
+
+		$rows = $db->prepare("SELECT AVG(estrelas) AS mediaEstrelas FROM votos_estrela WHERE comicGuid = ?");
+		$rows->bindParam(1, $comicGuid);
+		$rows->execute();
+		$quant = $rows->fetch(PDO::FETCH_OBJ);
+
+		if ($quant == false) {
+			return 0;
+		}
+
+		return $quant->mediaEstrelas;
+	}
 }
 
 // user trecos

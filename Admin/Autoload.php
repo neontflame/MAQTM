@@ -131,6 +131,31 @@ class RenderizadoresMisc {
 	}
 }
 
+class EstrelaManager {
+	public static function getEstrelas($quant) {
+		// quant vai de 0 ate 5
+		// cada estrela tem 3 imagens: vazia, ao meio e cheia
+		// logo a gente multiplica quant por 2, pega o float e divide
+		$quantquant = floor($quant * 2) / 2;
+		$quantquantredondo = ceil($quantquant);
+		$arrayDeEstrelas = [];
+		
+		foreach (range(1, 5, 1) as $seiLaMano) {
+			if ($seiLaMano <= $quantquantredondo) {
+				if ($seiLaMano <= $quantquant) {
+					array_push($arrayDeEstrelas, "quadrinhos_fav_full");
+				} else {
+					array_push($arrayDeEstrelas, "quadrinhos_fav_half");
+				}
+			} else {
+				array_push($arrayDeEstrelas, "quadrinhos_fav_empty");
+			}
+		}
+		
+		return $arrayDeEstrelas;
+	}
+}
+
 class RenderizadorDeHq {
 	public static function doLado($comic, $tipoDeLado) {
 		?>
@@ -191,16 +216,16 @@ class RenderizadorDeHq {
 					<span class="quadrinhos_comentarios">
 						<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>#comentario">
 							<img src="/imagens/blank.png" alt="comentários" title="comentários"/> 
-							<em>21</em>
+							<em><?= HqTools::quantComentarios($comic->comicGuid) ?></em>
 						</a>
 					</span>
 					
 					<div class="estrelas"> 
-						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_Nota1" class="quadrinhos_fav_full" width="17" height="17">
-						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_Nota2" class="quadrinhos_fav_full" width="17" height="17">
-						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_Nota3" class="quadrinhos_fav_full" width="17" height="17">
-						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_Nota4" class="quadrinhos_fav_full" width="17" height="17">
-						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_Nota5" class="quadrinhos_fav_full" width="17" height="17">
+						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_Nota1" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($comic->comicGuid))[0] ?>" width="17" height="17">
+						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_Nota2" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($comic->comicGuid))[1] ?>" width="17" height="17">
+						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_Nota3" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($comic->comicGuid))[2] ?>" width="17" height="17">
+						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_Nota4" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($comic->comicGuid))[3] ?>" width="17" height="17">
+						<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_Nota5" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($comic->comicGuid))[4] ?>" width="17" height="17">
 					</div>
 				</div>
 				<div class="container_quadrinhos_valores" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula2_ucBarraCategoria_VotCat">
@@ -242,15 +267,15 @@ class RenderizadorDeHq {
 						</span>
 						<span class="quadrinhos_comentarios">
 							<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>#comentario">
-								<img src="/imagens/blank.png" alt="comentários" title="comentários" /> <em>21</em>
+								<img src="/imagens/blank.png" alt="comentários" title="comentários" /> <em><?= HqTools::quantComentarios($comic->comicGuid) ?></em>
 							</a>
 						</span>
 						<div class="estrelas">
-							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhores<?= $aTag ?>_ctl00_ucHistoriaCelula1_Nota1" class="quadrinhos_fav_full" width="17" height="17"/>
-							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhores<?= $aTag ?>_ctl00_ucHistoriaCelula1_Nota2" class="quadrinhos_fav_full" width="17" height="17"/>
-							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhores<?= $aTag ?>_ctl00_ucHistoriaCelula1_Nota3" class="quadrinhos_fav_full" width="17" height="17"/>
-							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhores<?= $aTag ?>_ctl00_ucHistoriaCelula1_Nota4" class="quadrinhos_fav_full" width="17" height="17"/>
-							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhores<?= $aTag ?>_ctl00_ucHistoriaCelula1_Nota5" class="quadrinhos_fav_full" width="17" height="17"/>
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhores<?= $aTag ?>_ctl00_ucHistoriaCelula1_Nota1" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($comic->comicGuid))[0] ?>" width="17" height="17"/>
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhores<?= $aTag ?>_ctl00_ucHistoriaCelula1_Nota2" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($comic->comicGuid))[1] ?>" width="17" height="17"/>
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhores<?= $aTag ?>_ctl00_ucHistoriaCelula1_Nota3" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($comic->comicGuid))[2] ?>" width="17" height="17"/>
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhores<?= $aTag ?>_ctl00_ucHistoriaCelula1_Nota4" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($comic->comicGuid))[3] ?>" width="17" height="17"/>
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistoriasMelhores<?= $aTag ?>_ctl00_ucHistoriaCelula1_Nota5" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($comic->comicGuid))[4] ?>" width="17" height="17"/>
 						</div>
 					</div>
 				</div>
@@ -284,15 +309,15 @@ class RenderizadorDeHq {
 						</span>
 						<span class="quadrinhos_comentarios">
 							<a href="/HistoriaVisualizar.aspx?idHistoria=<?= $comic->comicGuid ?>#comentario">
-								<img src="/imagens/blank.png" alt="comentários" title="comentários" /> <em>9</em>
+								<img src="/imagens/blank.png" alt="comentários" title="comentários" /> <em><?= HqTools::quantComentarios($comic->comicGuid) ?></em>
 							</a>
 						</span>
 						<div class="estrelas">
-							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_Nota1" class="quadrinhos_fav_full" width="17" height="17"/>
-							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_Nota2" class="quadrinhos_fav_half" width="17" height="17" />
-							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_Nota3" class="quadrinhos_fav_empty" width="17" height="17" />
-							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_Nota4" class="quadrinhos_fav_empty" width="17" height="17" />
-							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_Nota5" class="quadrinhos_fav_empty" width="17" height="17" />
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_Nota1" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($comic->comicGuid))[0] ?>" width="17" height="17"/>
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_Nota2" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($comic->comicGuid))[1] ?>" width="17" height="17" />
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_Nota3" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($comic->comicGuid))[2] ?>" width="17" height="17" />
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_Nota4" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($comic->comicGuid))[3] ?>" width="17" height="17" />
+							<img src="/imagens/blank.png" id="ctl00_ContentPlaceHolder1_rptHistorias<?= $aTag ?>_ctl00_ucHistoriaCelula3_Nota5" class="<?= EstrelaManager::getEstrelas(HqTools::votoMedia($comic->comicGuid))[4] ?>" width="17" height="17" />
 						</div>
 					</div>
 				</div>

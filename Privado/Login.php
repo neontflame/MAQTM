@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$_SESSION['userGuid'] = $entradas['userGuid'];
 		$_SESSION['nome'] = $entradas['nome'];
 		// info("Olá de novo novamente, " . $entradas['username'] . "!");
-		redirect('/HistoriasPublicadas.aspx');
+		redirect($_GET['urlretorno'] ?? '/HistoriasPublicadas.aspx');
 	}
 }
 
