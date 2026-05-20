@@ -1,3 +1,7 @@
+# AVISO PRÉVIO: Esse projeto agora é localizado [nesse outro git](https://git.fupi.cat/neontflame/MAQTM)!
+
+---
+
 ![](/anotacoes/logoRemaquina.png)
 
 # Máquina Aberta de Quadrinhos da Turma da Mônica
