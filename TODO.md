@@ -1,16 +1,65 @@
 # o que tem pra fazer ainda
 - cadastro de conta
+	- Cadastro.aspx
+	- Cadastro_Ajax.aspx
+	- UsuarioPreCadastro/UsuarioPreCadastro.aspx
 - poder votar em historias
 - pagina de criaçao de historias
-- paginas de perfil
+	- Privado/EditorQuadrinhos.aspx
+- séries??? eu acho
+	- Privado/HistoriaSerieGerenciar.aspx (provavelmente tinha parametros mas nos nao sabemos ainda)
+- paginas de perfil e usuario
+	- AutorPerfil.aspx?idUsuario=(id)
+	- AutorPerfilHistorias.aspx?crit=(mel/ult/plt)&idUsuario=(o que voce acha)
+		- mel -> Melhores histórias
+		- ult -> Histórias recentes
+		- plt -> Séries recentes (mostra a primeira historia de cada 'serie' pelo visto)
+	- UsuarioFavoritadoPor.aspx?idUsuario=(id)
+	- UsuarioOutroAutoresFavoritos.aspx?idUsuario=(id)
+	- UsuarioMural.aspx?idUsuario=(id)
+	
+	- Privado/UsuarioIndicacao.aspx (nao sei do que se trata ainda :/)
+	- Privado/UsuarioNewsFeed.aspx
+	- Privado/UsuarioResponsavel.aspx
+	
 - postagem de comentarios
 	- deixar aparencia do treco de postar comentarios mais veridica a como era na epoca
 - pesquisar historias
-- paginas de categoria de historia
+	- SearchBasico.aspx?busca=(query vai aqui)&estilo=(estilo especifico)
+	- SearchEstilo.aspx?estilo=(estilo especifico)
+		- todos
+		- roteiro
+		- romance
+		- diversao
+		- humor
+		- inovacao
+		- aventura
+		- arte
+- paginas de categoria de historia (ver acima)
 - pagina de noticias
+	- BlogItemListagem.aspx?pagina=(ah cara... nao sei...)
+	- BlogItem.aspx?idBlogItem=(voce sabe)&pagina=(pagina dos comentarios)
 
 - pagina inicial so que ela nao mostra so uma historia
+	- HistoriasPublicadas.aspx?pagina=(qual)
+	- HistoriasPublicadasv2.aspx (pos-2012 eu creio. tira os quadrinhos em destaque)
+	- HistoriasPublicadasDetalhe.aspx?crit=(dm/mom/pop/rc/sem/vis)&pagina=(I sure wonder)
+		- dm -> Mais das mais!
+		- mom -> Melhores do momento!
+		- pop -> Mais Populares!
+		- rc -> Mais recentes!
+		- sem -> Melhores da semana!
+		- vis -> Mais Visualizadas!
+		- dst -> Destaques!
 - ver se algum usuario ta online ou nao
 - mais coisas que eu provavelmente devo ter esquecido
+	- meuscomentariosrecebidos.aspx
+	- MQTMNewsletter/Unsubscribe.aspx (eu tinha hoje anos quando eu descobri que a MQTM tinha uma newsletter)
+	- **Fucking Pacotes**
+		- Pacotes.aspx?ordenacao=(R/C)
+			- R -> Mais recentes
+			- C -> Mais comprados (uhhhhhhhh vamos ter que trocar por Outra coisa pra nao acordar com 5 cartas de c&d na minha porta)
+		- PacoteDetalhe.aspx?idPacote=(id)&idPacoteRelacionado=(id)
+			- funcionava pra assinaturas tambem methinks ?????
 
 planeta robo infelizmente e impossivel restaurar pq o swf do jogo (bem como os niveis se os arquivos deles forem separados) nao tao arquivados no wayback machine :( 
