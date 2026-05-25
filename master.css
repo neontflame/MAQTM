@@ -3223,6 +3223,8 @@ div.votar {
 	background: transparent url(/imagens/sistema_votacao.png) no-repeat;
 	width: 220px;
 	margin-left: 2px;
+	padding-top: 1px;
+	padding-bottom: 20px;
 }
 
 div.votar div.menu_container2 {
@@ -3235,8 +3237,10 @@ div.votar div.menu_container2 {
 }
 
 div.votar div.status_botoes_direito {
-	margin: 0px 0px 0px 7px;
-	float: left;
+	float: right;
+	margin-top: -1px;
+	margin-bottom: -9px;
+	margin-right: 12px;
 }
 
 div#sustoVotacao.menu_container2 {

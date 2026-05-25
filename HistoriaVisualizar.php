@@ -9,6 +9,13 @@ $autorInfo = UsuarioTools::requestIDator($historiaInfo->userGuid);
 
 $meta['titulo'] = $historiaInfo->titulo . ' - Máquina Aberta de Quadrinhos da Turma da Mônica';
 
+$extraIncludes = [
+	['css', '/Editor/history/history.css'],
+	['js', '/Editor/AC_OETags.js'],
+	['js', '/Editor/history/history.js'],
+	['jsEmbedded', 'var requiredMajorVersion = 9;var requiredMinorVersion = 0;var requiredRevision = 124;'],
+];
+
 include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/SiteAbre.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 
@@ -53,7 +60,7 @@ $comentos = ComentarioTools::comentariosDeUmaHq($id);
 				</span>
 				<span id="ctl00_ContentPlaceHolder1_upHistoriaReporte">
 				<span class="reportar_button">
-				<a onclick="return confirm(&#39;Você precisa estar logado. Clique em Ok para continuar.&#39;);" id="ctl00_ContentPlaceHolder1_btnHistoriaReportar" class="reportar_hist" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$btnHistoriaReportar&#39;,&#39;&#39;)">
+				<a onclick="return confirm('Você precisa estar logado. Clique em Ok para continuar.');" id="ctl00_ContentPlaceHolder1_btnHistoriaReportar" class="reportar_hist" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$btnHistoriaReportar','')">
 				<img src="/imagens/blank.png">
 				</a>										
 				</span>
@@ -66,14 +73,14 @@ $comentos = ComentarioTools::comentariosDeUmaHq($id);
 			</div>
 			<div class="clearall"></div>
 			<div id="botoes_sociais">
-				<a name="fb_share" type="icon" class="botao_facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fweb.archive.org%2Fweb%2F20111229015108%2Fhttp%3A%2F%2Fwww.maquinadequadrinhos.com.br%2FHistoriaVisualizar.aspx%3FidHistoria%3D1145961&amp;t=1955-2011%20-%20M%C3%A1quina%20de%20Quadrinhos%20da%20Turma%20da%20M%C3%B4nica&amp;src=sp" style="text-decoration: none;"><span class="FBConnectButton_Simple"><span class="FBConnectButton_Text_Simple">﻿</span></span></a>
+				<a name="fb_share" type="icon" class="botao_facebook" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.maquinadequadrinhos.com.br%2FHistoriaVisualizar.aspx%3FidHistoria%3D1145961&amp;t=1955-2011%20-%20M%C3%A1quina%20de%20Quadrinhos%20da%20Turma%20da%20M%C3%B4nica&amp;src=sp" style="text-decoration: none;"><span class="FBConnectButton_Simple"><span class="FBConnectButton_Text_Simple">﻿</span></span></a>
 				<a href="http://www.blogger.com/blog_this.pyra?t&amp;u=http%3a%2f%2fwww.maquinadequadrinhos.com.br%2fHistoriaVisualizar.aspx%3fidHistoria%3d1145961&amp;n=1955-2011+-+M%c3%a1quina+de+Quadrinhos+da+Turma+da+M%c3%b4nica&amp;pli=1" target="_blank" title="Compartilhar no Blogger !" class="blogger"><img alt="Compartilhar no Blogger !" src="http://1.bp.blogspot.com/_YUvD9j84Cik/TBvMqnnrVtI/AAAAAAAAAG8/O65EnRFSHFk/blogger.gif" style="width:16px; height:16px; padding:0; border:0; vertical-align:middle;"></a> 
 				<script type="text/javascript" src="/Javascript/FB.Share"></script>
-				<script type="text/javascript" src="/Javascript/widgets.js"></script>
+				<!-- <script type="text/javascript" src="/Javascript/widgets.js"></script> -->
 				<script type="text/javascript" src="/Javascript/jsapi"></script>	
 				<div id="enviarEmail_amigo">
 					<span class="enviar_botao">
-					<a id="ctl00_ContentPlaceHolder1_lnkEnviarParaAmigoFormularioExibir" class="email_btn" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$lnkEnviarParaAmigoFormularioExibir&#39;,&#39;&#39;)">
+					<a id="ctl00_ContentPlaceHolder1_lnkEnviarParaAmigoFormularioExibir" class="email_btn" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$lnkEnviarParaAmigoFormularioExibir','')">
 					<img src="/imagens/blank.png" title="enviar para um amigo!" alt="enviar para um amigo!">
 					</a>
 					</span>
@@ -133,7 +140,7 @@ $comentos = ComentarioTools::comentariosDeUmaHq($id);
 				<?php if ($usuario == null) : ?>
 				<span>Deseja comentar?</span><br><br>
 				<center>
-					<p><a href="/Cadastro.aspx?r=1">Cadastre-se</a> na Máquina de Quadrinhos gratuitamente ou faça o <a id="ctl00_ContentPlaceHolder1_ucComentarioInsercao_lkBtnLogin" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$ucComentarioInsercao$lkBtnLogin&#39;,&#39;&#39;)">login</a>, caso você já seja um membro.</p>
+					<p><a href="/Cadastro.aspx?r=1">Cadastre-se</a> na Máquina de Quadrinhos gratuitamente ou faça o <a id="ctl00_ContentPlaceHolder1_ucComentarioInsercao_lkBtnLogin" href="/Privado/Login.aspx?urlretorno=/HistoriaVisualizar.aspx?idHistoria=<?= $id ?>">login</a>, caso você já seja um membro.</p>
 				</center>
 				<?php endif; ?>
 			</div>
@@ -280,7 +287,7 @@ $comentos = ComentarioTools::comentariosDeUmaHq($id);
 		</div>
 	</div>
 	<div id="master_col_03">
-		<input name="ctl00$ContentPlaceHolder1$ucBtnCriarHistoria$button" type="button" id="ctl00_ContentPlaceHolder1_ucBtnCriarHistoria_button" class="bt_longo" value="Criar história" onclick="location.href=&#39;/Privado/EditorQuadrinhos.aspx&#39;">
+		<input name="ctl00$ContentPlaceHolder1$ucBtnCriarHistoria$button" type="button" id="ctl00_ContentPlaceHolder1_ucBtnCriarHistoria_button" class="bt_longo" value="Criar história" onclick="location.href='/Privado/EditorQuadrinhos.aspx'">
 		<a href="/Tutorial/Tutorial_03.aspx" id="ctl00_ContentPlaceHolder1_ucBtnCriarHistoria_lkAprendaCriarHistoria" class="botao_ir">Aprenda a criar histórias!</a>
 		<br>
 		<br>
@@ -309,15 +316,43 @@ $comentos = ComentarioTools::comentariosDeUmaHq($id);
 				<?php if ($usuario == null) : ?>
 				<div class="status_comentario">
 					<center>
-						<p><a href="/Cadastro.aspx?r=1">Cadastre-se</a> ou faça o <a id="ctl00_ContentPlaceHolder1_lkBtnLogin3" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$lkBtnLogin3&#39;,&#39;&#39;)">login</a> caso você já seja um membro.</p>
+						<p><a href="/Cadastro.aspx?r=1">Cadastre-se</a> ou faça o <a id="ctl00_ContentPlaceHolder1_lkBtnLogin3" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$lkBtnLogin3','')">login</a> caso você já seja um membro.</p>
 					</center>
 				</div>
 				<?php else : ?>
-				<div class="status_comentario">
-					<center>
-						<p>todo fazer a FUCKING funcionalidade</p>
-					</center>
+				<div class="votar">
+				<?php
+				$categorias = [
+					"susto" => ["Roteiro", "roteiro"],
+					"romance" => ["Romance", "romance"],
+					"loucura" => ["Diversão", "diversao"],
+					"humor" => ["Humor", "humor"],
+					"ficcao" => ["Inovação", "inovacao"],
+					"acao" => ["Aventura", "aventura"],
+					"drama" => ["Arte", "arte"],
+				];
+				
+				foreach ($categorias as $catInterno => $catExterno) :?>
+					<div class="status_botoes_direito">
+						<div class="menu_container2" id="<?= $catInterno ?>Votacao">
+							<div class="menu_votabotao">
+								<input type="radio" value="0" name="<?= $catExterno[1] ?>">
+								<input type="radio" value="1" name="<?= $catExterno[1] ?>">
+								<input type="radio" value="2" name="<?= $catExterno[1] ?>">
+								<input type="radio" value="3" name="<?= $catExterno[1] ?>">
+								<input type="radio" value="4" name="<?= $catExterno[1] ?>">
+								<input type="radio" value="5" name="<?= $catExterno[1] ?>">
+							</div>
+						</div>
+					</div>
+				<?php endforeach; 
+				foreach ($categorias as $catInterno => $catExterno) :?>
+					<div class="menu_container2" id="<?= $catInterno ?>Botao2">
+						<?= $catExterno[0] ?>
+					</div>
+				<?php endforeach; ?>
 				</div>
+				<input name="votar" type="button" id="votar" class="bt_longo" value="Confirmar seu voto" onclick="location.href='/Privado/EditorQuadrinhos.aspx'">
 				<?php endif; ?>
 				<div class="containerbottom_col_03"></div>
 			</div>

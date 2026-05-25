@@ -110,7 +110,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 		</div>
 		<div
 			id="slider"
-			style="position: relative; background: url(&quot;/imagens/img_c_v1_Vitrine_Home.jpg&quot;) no-repeat"
+			style="position: relative; background: url('/imagens/img_c_v1_Vitrine_Home.jpg') no-repeat"
 			class="nivoSlider"
 		>
 			<a href="/BlogItem.aspx?idBlogItem=64" class="nivo-imageLink" style="display: none"
@@ -136,7 +136,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 0px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) 0px 0px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') 0px 0px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -146,7 +146,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 0px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -96px 0px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -96px 0px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -156,7 +156,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 0px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -192px 0px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -192px 0px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -166,7 +166,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 0px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -288px 0px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -288px 0px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -176,7 +176,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 0px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -384px 0px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -384px 0px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -186,7 +186,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 0px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -480px 0px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -480px 0px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -196,7 +196,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 0px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -576px 0px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -576px 0px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -206,7 +206,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 0px;
 					width: 98px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -672px 0px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -672px 0px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -216,7 +216,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 44px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) 0px -44px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') 0px -44px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -226,7 +226,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 44px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -96px -44px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -96px -44px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -236,7 +236,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 44px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -192px -44px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -192px -44px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -246,7 +246,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 44px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -288px -44px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -288px -44px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -256,7 +256,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 44px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -384px -44px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -384px -44px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -266,7 +266,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 44px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -480px -44px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -480px -44px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -276,7 +276,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 44px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -576px -44px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -576px -44px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -286,7 +286,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 44px;
 					width: 98px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -672px -44px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -672px -44px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -296,7 +296,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 88px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) 0px -88px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') 0px -88px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -306,7 +306,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 88px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -96px -88px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -96px -88px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -316,7 +316,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 88px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -192px -88px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -192px -88px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -326,7 +326,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 88px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -288px -88px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -288px -88px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -336,7 +336,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 88px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -384px -88px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -384px -88px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -346,7 +346,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 88px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -480px -88px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -480px -88px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -356,7 +356,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 88px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -576px -88px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -576px -88px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -366,7 +366,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 88px;
 					width: 98px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -672px -88px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -672px -88px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -376,7 +376,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 132px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) 0px -132px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') 0px -132px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -386,7 +386,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 132px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -96px -132px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -96px -132px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -396,7 +396,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 132px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -192px -132px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -192px -132px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -406,7 +406,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 132px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -288px -132px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -288px -132px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -416,7 +416,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 132px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -384px -132px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -384px -132px no-repeat;
 				"
 			></div>
 			<div
@@ -427,7 +427,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 132px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -480px -132px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -480px -132px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -437,7 +437,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 132px;
 					width: 96px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -576px -132px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -576px -132px no-repeat;
 				"></div>
 			<div
 				class="nivo-box"
@@ -447,7 +447,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 					top: 132px;
 					width: 98px;
 					height: 44px;
-					background: url(&quot;/imagens/img_a_v3_Vitrine_Home.jpg&quot;) -672px -132px no-repeat;
+					background: url('/imagens/img_a_v3_Vitrine_Home.jpg') -672px -132px no-repeat;
 				"></div>
 		</div>
 		<img src="/imagens/bg_Vitrine_Home.png" alt="" width="803" height="194" class="vitrineMoldura" />

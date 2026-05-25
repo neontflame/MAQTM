@@ -12,20 +12,73 @@
 <link rev="made" href="mailto:sac@maquinadequadrinhos.com.br">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="stylesheet" type="text/css" media="all" href="/master.css">
-<link rel="stylesheet" type="text/css" media="all" href="/Javascript/jquery.ui.tabs.css">
-<link rel="stylesheet" type="text/css" media="all" href="/Javascript/jquery.ui.slider.css">
+<script language="javascript" type="text/javascript" src="/Javascript/MicrosoftAjax.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="/Jquery.UI.Css/jquery.ui.tabs.css">
+<link rel="stylesheet" type="text/css" media="all" href="/Jquery.UI.Css/jquery.ui.slider.css">
 <script language="javascript" type="text/javascript" src="/Javascript/jquery-1.4.4.min.js"></script>
 <script language="javascript" type="text/javascript" src="/Javascript/jquery.tools.min.js"></script>
 <script language="javascript" type="text/javascript" src="/Javascript/jquery-ui-1.8.7.custom.min.js"></script>
 <script language="javascript" type="text/javascript" src="/Javascript/jquery.validate.min.js"></script>
 <script language="javascript" type="text/javascript" src="/Javascript/mqtm_v2.js"></script>
 <script language="javascript">
-    function buscar(termoBusca, estilo) { var busca = termoBusca.replace(/^\s+/, '').replace(/^\s+/, '').replace(/&/g, "").replace(/#/g, "").replace('+', ''); if (busca != '') { window.location = "/SearchBasico.aspx?busca=" + encodeURI(busca) + "&estilo=" + encodeURI(estilo); } else { window.location = "/SearchBasico.aspx?estilo=" + "any"; } return false; } function submitenter(myfield, e) { if (e.keyCode == 13) { buscar(myfield.toString(), 'todos'); return false; } } function thisMovie(movieName) { if (navigator.appName.indexOf("Microsoft") != -1) { return window[movieName]; } else { return document[movieName]; } }
+    function buscar(termoBusca, estilo) {
+		var busca = termoBusca.replace(/^\s+/, '').replace(/^\s+/, '').replace(/&/g, "").replace(/#/g, "").replace('+', ''); 
+		if (busca != '') { 
+			window.location = "/SearchBasico.aspx?busca=" + encodeURI(busca) + "&estilo=" + encodeURI(estilo); 
+		} else { 
+			window.location = "/SearchBasico.aspx?estilo=" + "any"; 
+		} 
+		return false; 
+	}
+	
+	function submitenter(myfield, e) { 
+		if (e.keyCode == 13) { 
+			buscar(myfield.toString(), 'todos'); 
+			return false; 
+		} 
+	} 
+	
+	function thisMovie(movieName) { 
+		if (navigator.appName.indexOf("Microsoft") != -1) { 
+			return window[movieName]; 
+		} else { 
+			return document[movieName]; 
+		} 
+	}
+	
+	function __doPostBack(eventTarget, eventArgument) {
+		var theForm = document.forms['aspnetForm']; // Ensure your form ID matches
+		if (!theForm) {
+			theForm = document.aspnetForm;
+		}
+		if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+			theForm.__EVENTTARGET.value = eventTarget;
+			theForm.__EVENTARGUMENT.value = eventArgument;
+			theForm.submit();
+		}
+	}
 </script>
 <script type="text/javascript">
-    $(document).ready(function() { $('#loginTotal').load('/Controls/UsuarioLoginInfoAjax.aspx'); });
+    $(document).ready(function() { 
+		$('#loginTotal').load('/Controls/UsuarioLoginInfoAjax.aspx'); 
+	});
 </script>
-<script type="text/javascript" src="/Javascript/ajax.js" language="javascript"></script>
+<script type="text/javascript" src="/ajax.js" language="javascript"></script>
+<?php 
+	if (isset($extraIncludes)) {
+		foreach ($extraIncludes as $extraInclude) {
+			if ($extraInclude[0] == 'js') {
+				echo '<script type="text/javascript" src="' . $extraInclude[1] . '" language="javascript"></script>';
+			}
+			if ($extraInclude[0] == 'css') {
+				echo '<link rel="stylesheet" type="text/css" href="' . $extraInclude[1] . '">';
+			}
+			if ($extraInclude[0] == 'jsEmbedded') {
+				echo '<script type="text/javascript" language="javascript">' . $extraInclude[1] . '</script>';
+			}
+		}
+	}
+?>
 </head>
 
 <body visible="true" id="ctl00_<?= $tipoDPagina ?>" onload="">
