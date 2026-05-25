@@ -47,7 +47,8 @@ include $_SERVER['DOCUMENT_ROOT'] . "/PartesDoSite/Header.php";
 				
 				<p>
 					<label>Data de nascimento:</label>
-					<input name="txtDia" type="number" id="ctl00_ContentPlaceHolder1_txtDia" size="2" display="Dynamic"> / <input name="txtMes" type="number" id="ctl00_ContentPlaceHolder1_txtMes" size="2" display="Dynamic">  / <input name="txtAno" type="number" id="ctl00_ContentPlaceHolder1_txtAno" size="4" display="Dynamic"> 
+					<!-- <input name="txtDia" type="number" id="ctl00_ContentPlaceHolder1_txtDia" size="2" display="Dynamic"> / <input name="txtMes" type="number" id="ctl00_ContentPlaceHolder1_txtMes" size="2" display="Dynamic">  / <input name="txtAno" type="number" id="ctl00_ContentPlaceHolder1_txtAno" size="4" display="Dynamic"> -->
+					<input type="date" id="ctl00_ContentPlaceHolder1_txtData" name="txtData">
 				</p>
 
 				<p class="sexo">

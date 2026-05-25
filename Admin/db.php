@@ -176,16 +176,20 @@ class UsuarioTools {
 		return $user;
 	}
 	
-	public static function criar($nome, $email, $senha, $pfp)
+	public static function criar($nome, $email, $senha, $dataNasc, $gen, $perguntaDeSeguranca, $pfp)
 	{
 		global $db;
 		
-		$rows = $db->prepare("INSERT INTO usuarios (nome, email, senha, pfp) VALUES (?, ?, ?, ?)");
+		$rows = $db->prepare("INSERT INTO usuarios (nome, email, senha, dataNasc, genero, perguntaDeSeguranca, apelido, pfp) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 		$rows->bindParam(1, $nome);
 		$rows->bindParam(2, $email);
 		$hashword = password_hash($senha, PASSWORD_DEFAULT);
 		$rows->bindParam(3, $hashword);
-		$rows->bindParam(4, $pfp);
+		$rows->bindParam(4, $dataNasc);
+		$rows->bindParam(5, $gen);
+		$rows->bindParam(6, $perguntaDeSeguranca);
+		$rows->bindParam(7, $nome);
+		$rows->bindParam(8, $pfp);
 		$rows->execute();
 		
 		$id = $db->lastInsertId();
